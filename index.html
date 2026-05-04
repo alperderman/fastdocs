@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+    <title>DOCS NEW GRID</title>
+    <link rel="stylesheet" href="util.css">
+    <link rel="stylesheet" href="docs.css">
+</head>
+
+<body>
+
+    <div class="grid-x -full">
+        <div class="side -inherit-y cell -8 -5_medium -3_large -show_large -fixed -top-left -hide_print">
+            <div class="grid-y">
+                <div class="cell -auto -hide_large">
+                    <div class="grid-x -right">
+                        <div class="cell -auto">
+                            <button onclick="docs.toggleSidebar()" class="close-button">X</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell -auto">
+                    <div class="grid-x -middle">
+                        <div class="cell -fill">
+                            <input class="search-input" data-index="1" type="text">
+                        </div>
+                        <div class="cell -auto">
+                            <button class="search-button" data-index="1" onclick="docs.clickSearch()">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell -fill">
+                    <div class="grid-x">
+                        <div class="cell -fill sidebar">
+                            <!--SIDE BAR ITEMS-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main cell -fill -push-3_large">
+            <div class="grid-y -frame -full">
+                <div class="cell -auto -overflow -hide_print">
+                    <div class="grid-x">
+                        <div class="cell -fill -overflow">
+                            <div class="nav">
+                                <div class="nav-group menu">
+                                    <button class="menu-button nav-item -hide_large"
+                                        onclick="docs.toggleSidebar()">Menu</button>
+                                    <button class="nav-item" onclick="docs.showMap()">Home</button>
+                                    <button class="nav-item" onclick="window.print()">Print</button>
+                                    <button class="nav-item" onclick="docs.exportMap()">Export</button>
+                                    <div class="nav-group">
+                                        <button class="nav-item" onclick="docs.zoomOut()">-</button>
+                                        <button class="nav-item" onclick="docs.zoomBase()">Zoom</button>
+                                        <button class="nav-item" onclick="docs.zoomIn()">+</button>
+                                    </div>
+                                </div>
+                                <div class="nav-group overflow">
+                                    <button class="nav-item">Overflow</button>
+                                    <div class="overflow-menu"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell -fill">
+                    <div class="content">
+                        <div class="home grid-x -center">
+                            <div class="cell -12 -8_medium -6_large">
+                                <div class="grid-x -center -middle">
+                                    <div class="cell -fill">
+                                        <input class="search-input" data-index="2" type="text">
+                                    </div>
+                                    <div class="cell -auto">
+                                        <button class="search-button" data-index="2"
+                                            onclick="docs.clickSearch()">Search</button>
+                                    </div>
+                                </div>
+                                <div class="map grid-x -center">
+                                    <div class="map-list cell -fill">
+                                        <!--MAP LIST-->
+                                    </div>
+                                </div>
+                                <div class="search grid-x">
+                                    <div class="search-result cell -fill">
+                                        <!--SEARCH RESULTS-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="docs.js"></script>
+    <script>
+        docs.init();
+    </script>
+</body>
+
+</html>

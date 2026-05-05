@@ -5,20 +5,25 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
-    <title>DOCS NEW GRID</title>
+    <title>FASTDOCS</title>
     <link rel="stylesheet" href="util.css">
     <link rel="stylesheet" href="docs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha384-SOnAn/m2fVJCwnbEYgD4xzrPtvsXdElhOVvR8ND1YjB5nhGNwwf7nBQlhfAwHAZC" crossorigin="anonymous">
 </head>
 
 <body>
 
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
     <div class="grid-x -full">
         <div class="side -inherit-y cell -8 -5_medium -3_large -show_large -fixed -top-left -hide_print">
             <div class="grid-y">
-                <div class="cell -auto -hide_large">
+                <div class="close cell -auto -hide_large">
                     <div class="grid-x -right">
                         <div class="cell -auto">
-                            <button onclick="docs.toggleSidebar()" class="close-button">X</button>
+                            <button onclick="docs.toggleSidebar()" class="close-button"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                     </div>
                 </div>
@@ -28,7 +33,7 @@
                             <input class="search-input" data-index="1" type="text">
                         </div>
                         <div class="cell -auto">
-                            <button class="search-button" data-index="1" onclick="docs.clickSearch()">Search</button>
+                            <button class="search-button" data-index="1"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
                 </div>
@@ -49,18 +54,18 @@
                             <div class="nav">
                                 <div class="nav-group menu">
                                     <button class="menu-button nav-item -hide_large"
-                                        onclick="docs.toggleSidebar()">Menu</button>
-                                    <button class="nav-item" onclick="docs.showMap()">Home</button>
-                                    <button class="nav-item" onclick="window.print()">Print</button>
-                                    <button class="nav-item" onclick="docs.exportMap()">Export</button>
+                                        onclick="docs.toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+                                    <button class="nav-item" onclick="docs.mapAction(true)"><i class="fa-solid fa-house"></i></button>
+                                    <button class="nav-item" onclick="window.print()"><i class="fa-solid fa-print"></i></button>
+                                    <button class="nav-item" onclick="docs.exportMap()"><i class="fa-solid fa-download"></i></button>
                                     <div class="nav-group">
-                                        <button class="nav-item" onclick="docs.zoomOut()">-</button>
-                                        <button class="nav-item" onclick="docs.zoomBase()">Zoom</button>
-                                        <button class="nav-item" onclick="docs.zoomIn()">+</button>
+                                        <button class="nav-item" onclick="docs.zoomOut()"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                                        <button class="nav-item zoom" onclick="docs.zoomBase()">Zoom</button>
+                                        <button class="nav-item" onclick="docs.zoomIn()"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
                                     </div>
                                 </div>
                                 <div class="nav-group overflow">
-                                    <button class="nav-item">Overflow</button>
+                                    <button class="nav-item"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div class="overflow-menu"></div>
                                 </div>
                             </div>
@@ -76,8 +81,7 @@
                                         <input class="search-input" data-index="2" type="text">
                                     </div>
                                     <div class="cell -auto">
-                                        <button class="search-button" data-index="2"
-                                            onclick="docs.clickSearch()">Search</button>
+                                        <button class="search-button" data-index="2"><i class="fa-solid fa-magnifying-glass"></i></button>
                                     </div>
                                 </div>
                                 <div class="map grid-x -center">

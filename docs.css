@@ -15,11 +15,6 @@ button {
     -webkit-appearance: none;
 }
 
-&::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-}
-
 body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -129,6 +124,13 @@ body {
     text-align: left;
 }
 
+.side .side-item.active,
+.side .side-item.active:hover {
+    background-color: #3f627f;
+    color: #fff;
+    cursor: default;
+}
+
 .side .side-item:hover {
     color: #d06d3c;
 }
@@ -138,6 +140,10 @@ body {
     outline-offset: -0.1em;
 }
 
+.close {
+    border-bottom: 0.2em solid #fff;
+}
+
 .search-input {
     width: 100%;
 }
@@ -145,6 +151,7 @@ body {
 .search-button,
 .close-button {
     color: #3F5770;
+    font-size: 1.5em;
     padding: 1em;
     cursor: pointer;
 }
@@ -155,7 +162,7 @@ body {
 }
 
 .content {
-    padding:0 1em 0 1em;
+    padding: 0 1em 0 1em;
 }
 
 .map {
@@ -163,10 +170,8 @@ body {
 }
 
 .map .map-item {
-    display: block;
     position: relative;
     padding: 0.2em;
-    width: 100%;
     height: auto;
     cursor: pointer;
     text-align: left;
@@ -184,4 +189,32 @@ body {
 .search-item {
     border-bottom: 0.2em solid #3F5770;
     cursor: pointer;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 1em solid #ddd;
+    border-top-color: #d06d3c;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -9,3 +9,5 @@ Usage
 - add your custom css or js files to assets.html
 - append newly added sections to load.json
 - (optional) export new map.json if needed (delete the old map first)
+
+See more information about it in [Documentation](https://alperderman.github.io/fastdocs).

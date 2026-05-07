@@ -104,8 +104,16 @@ docs.getChildrenWidth = function (node) {
   }
   return width;
 };
-docs.toggleSidebar = function () {
-  docs.ui.node.side.classList.toggle("-show_large");
+docs.toggleSidebar = function (bool) {
+  if (typeof bool === 'boolean') {
+    if (bool) {
+      docs.ui.node.side.classList.remove("-show_large");
+    } else {
+      docs.ui.node.side.classList.add("-show_large");
+    }
+  } else {
+    docs.ui.node.side.classList.toggle("-show_large");
+  }
 };
 docs.setNavbar = function () {
   var menuWidth = docs.getNodeWidth(docs.ui.node.menu);
@@ -204,6 +212,7 @@ docs.buildSidebar = function (node, sections) {
     item.setAttribute(docs.label.index, section.index);
     item.addEventListener("click", function (e) {
       docs.clickItem(e.currentTarget);
+      docs.toggleSidebar(false);
     });
     group.appendChild(item);
     docs.buildSidebar(group, section.sub);
@@ -292,6 +301,7 @@ docs.queryAction = function (value, state) {
       item.setAttribute(docs.label.index, section.index);
       item.addEventListener("click", function (e) {
         docs.clickItem(e.currentTarget);
+        docs.toggleSidebar(false);
       });
       h3 = document.createElement("h3");
       h3.innerText = section.title;

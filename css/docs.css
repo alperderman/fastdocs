@@ -1,0 +1,214 @@
+button {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
+    font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    position: relative;
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    font-size: 1.25em;
+    background-color: #3f627f;
+    color: #eee;
+    box-shadow: 0px 0.25em 1em 0px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+}
+
+.nav .nav-group {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.nav .nav-group.menu {
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+}
+
+.nav .nav-group .menu-button {
+    border-right: 0.2em solid #eee;
+}
+
+.nav .nav-group.overflow {
+    margin-left: auto;
+    border-left: 0.2em solid #eee;
+}
+
+.nav .nav-group.zoom {
+    margin-left: auto;
+}
+
+.nav .overflow:hover .overflow-menu {
+    display: block;
+}
+
+.nav .overflow-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: auto;
+    height: auto;
+    display: none;
+    background-color: #eee;
+    color: #3F5770;
+}
+
+.nav .overflow-menu>.nav-item {
+    width: 100%;
+}
+
+.nav .nav-item {
+    display: block;
+    position: relative;
+    padding: 1em;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav .nav-item:hover {
+    color: #d06d3c;
+    background-color: #fff;
+}
+
+.nav .nav-item:focus-visible {
+    outline: 0.1em solid #d06d3c;
+    outline-offset: -0.1em;
+}
+
+.side {
+    background-color: #eee;
+    box-shadow: 0px 0.25em 1em 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    padding: 1em;
+}
+
+.side .side-group {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-left: 1em;
+    border-left: 0.2em solid #fff;
+}
+
+.side .side-item {
+    color: #3F5770;
+    display: block;
+    position: relative;
+    padding: 0.2em;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    text-align: left;
+}
+
+.side .side-item.active,
+.side .side-item.active:hover {
+    background-color: #3f627f;
+    color: #fff;
+    cursor: default;
+}
+
+.side .side-item:hover {
+    color: #d06d3c;
+}
+
+.side .side-item:focus-visible {
+    outline: 0.1em solid #d06d3c;
+    outline-offset: -0.1em;
+}
+
+.close {
+    border-bottom: 0.2em solid #fff;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.search-button,
+.close-button {
+    color: #3F5770;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.search-button:hover,
+.close-button:hover {
+    color: #d06d3c;
+}
+
+.content {
+    padding: 0 1em 0 1em;
+}
+
+.map {
+    color: #3F5770;
+}
+
+.map .map-item {
+    position: relative;
+    padding: 0.2em;
+    height: auto;
+    cursor: pointer;
+    text-align: left;
+}
+
+.map .map-item:hover {
+    color: #d06d3c;
+}
+
+.map .map-item:focus-visible {
+    outline: 0.1em solid #d06d3c;
+    outline-offset: -0.1em;
+}
+
+.search-item {
+    border-bottom: 0.2em solid #3F5770;
+    cursor: pointer;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d06d3c;
+}

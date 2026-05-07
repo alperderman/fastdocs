@@ -1,35 +1,105 @@
-<section data-title="Section Apple" data-tags="mollis, ipsum, dapibus" data-desc="Testing if desc works.">
-  <h1>Section Apple</h1>
-  <p>Fusce felis magna, pellentesque eget mollis a, rutrum id eros. Curabitur auctor varius arcu a
-    consequat. Phasellus quis pulvinar enim, eu ultricies justo. Pellentesque risus libero,
-    dapibus
-    at erat ultricies, gravida varius erat. Vestibulum ante ipsum primis in faucibus orci luctus
-    et
-    ultrices posuere cubilia Curae; Nulla tempus, justo ut laoreet mollis, nunc tellus convallis
-    urna, vel pretium dui velit eget ligula. Aliquam semper sed nulla a molestie. Maecenas at
-    egestas massa, vitae aliquam mi. Fusce nec sem egestas, pretium lacus non, tincidunt sapien.
-    Sed
-    tristique odio at ultricies vulputate. Integer et convallis augue, eu aliquam enim. Mauris
-    ut
-    faucibus diam. Donec vulputate nunc sed congue accumsan. Etiam lobortis nisi quis lacinia
-    pharetra.</p>
-  <section data-src="sections/content2.html"></section>
-</section>
+<style>
+  section {
+    padding-left: 0.5em;
+    border-left: 0.2em solid #eee;
+  }
+  pre {
+    overflow: auto;
+  }
+</style>
+<section data-title="Documentation" data-tags="documentation" data-desc="FASTDocs is a front-end only documentation layout">
+  <section data-title="Introduction" data-tags="intro" data-desc="Introduction to FASTDocs">
+    <h1>Introduction</h1>
+    <p><b>FASTDocs</b> is a documentation layout for quickly creating a documentation from scratch. The advantages of
+      <b>FASTDocs</b> are:
+    </p>
+    <ul>
+      <li>It has built-in indexing and search functionality.</li>
+      <li>Side-bar contents and site map are generated automatically.</li>
+      <li>Asset injection.</li>
+      <li>It is front-end only, no need to meddle with server-side code.</li>
+      <li>It is debranded and universal.</li>
+    </ul>
+    <p><b>FASTDocs</b> uses <code>section</code> HTML tag <code>data-title</code>, <code>data-tags</code> and
+      <code>data-desc</code> attributes to index and separate and between contents. Everything can be done without
+      writing a single line of JavaScript or server-side code.
+    </p>
+  </section>
+  <section data-title="Usage" data-tags="use, usage, install" data-desc="How to use FASTDocs">
+    <h1>Usage</h1>
+    <p>First download the project (this documentation) from GitHub, then delete <code>map.json</code> and all the
+      sections inside <code>sections</code> directory, this will give you clean workspace.</p>
+    <p>Later, write your own sections in pure HTML, put it in <code>sections</code> directory or any appropriate place
+      you like.</p>
+    <p>Lastly, edit <code>load.json</code> file, add file path of newly created sections, and edit document title,
+      title separator... to your liking.</p>
+    <p>Now you can start using your own documentation <b>FASTDocs</b> will handle the rest, optionally a new site map
+      (<code>map.json</code>) can be exported for increased efficiency.</p>
+  </section>
+  <section data-title="Creating Sections" data-tags="section, make, write"
+    data-desc="Write your own sections in FASTDocs">
+    <h1>Creating Sections</h1>
+    <p>Writing your own sections are easy as writing normal HTML code. Create a new pure HTML file without
+      <code>head</code> and <code>body</code> tags and start writing your contents as you would normally do.
+    </p>
+    <p>For content separation, <b>FASTDocs</b> utilizes <code>section</code> tag. These section tags alongside with any
+      content inside of them then will be processed and mapped out for side-bar contents, search functionality and
+      indexing.</p>
+    <p>There are 3 attributes needed to be defined inside <code>section</code> tags for processing and differentiation.
+      These attributes are:</p>
+    <ul>
+      <li><b>data-title</b>: Title of your section, the title will be shown in side-bar and in search results.</li>
+      <li><b>data-tags</b>: Tags of your section, tags are for searching functionality, add keywords related to your
+        section for them to be searched easily. In order to add multiple tags, seperate them with a comma (,) inside the
+        attribute.</li>
+      <li><b>data-desc</b>: Description of your section, brief explanation to be shown in search results for your
+        section.</li>
+    </ul>
+    <p>Multiple sections can be inside one another to represent sub-sections.</p>
+    <p>A healthy section with a sub-section should look like this:</p>
+    <pre><code>&lt;section data-title="Title Of Your Section" data-tags="tag1, tag2, tag3" data-desc="Description for your section"&gt;
+  &lt;h1&gt;Title&lt;/h1&gt;
+  &lt;p&gt;Lorem ipsum doler sit amet.&lt;/p&gt;
+  &lt;section data-title="Sub Section Title" data-tags="tag4, tag5" data-desc="Description for sub-section"&gt;
+    &lt;h2&gt;Sub-section&lt;/h2&gt;
+    &lt;p&gt;Lorem ipsum doler sit amet.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/section&gt;</code></pre>
+    <section data-title="External Sections" data-tags="source, src, xhr"
+      data-desc="Separate sections into different files">
+      <h2>External Sections</h2>
+      <p>Sections can be separated into different files and can be loaded from inside one another (instead of just
+        <code>load.json</code>) with <code>data-src</code> attribute that contains the URL of the section to be retrieved.
+      </p>
+      <pre><code>&lt;section data-src="path/to/section.html"&gt;&lt;/section&gt;</code></pre>
+    </section>
+  </section>
+  <section data-title="Site Map" data-tags="site, map, exporting"
+    data-desc="Export site map for increased efficiency">
+    <h1>Site Map</h1>
+    <p>Site map grants additional efficiency for indexing. Without a map, <b>FASTDocs</b> has to load every section first in order to index them, which is not ideal.</p>
+    <p>With a site map, <b>FASTDocs</b> only loads the site map as initial process, and sections are loaded only when needed to show them.</p>
+    <p><code>map.json</code> can be exported via download <i class="fa fa-download"></i> button on top navigation bar (don't forget to delete old <code>map.json</code> first).</p>
+  </section>
+  <section data-title="Asset Injection, Theming, Scripting" data-tags="assets, inject, script, style, theme"
+    data-desc="Injecting styles or scripts in FASTDocs">
+    <h1>Asset Injection, Theming, Scripting</h1>
+    <p><b>FASTDocs</b> already provides you with a sufficient and responsive user interface, however it is also possible to stylize your documentation with stylesheets or even execute scripts within sections.</p>
+    <p>Injecting styles and scripts are easy as you normally would do. If you want to add a style or script just add them to your sections using <code>style</code>, <code>link</code>, <code>script</code> tags. Your assets will be loaded when section is showed.</p>
+    <p>If you want to inject assets globally, insert your styles and scripts to <code>assets.html</code> file. Now your assets will be loaded at the initial process. <b>FASTDocs</b> will handle the assets automatically.</p>
+    <p>One thing to consider while injecting assets is that; <b>FASTDocs</b> ships with FontAwesome icons and custom stylesheet, so beware of clashing styles.</p>
+    <section data-title="docs.onSectionLoad()" data-tags="onload, event, script"
+    data-desc="Execute script when sections are loaded">
+    <h2>docs.onSectionLoad() function</h2>
+    <p>Even though it is not necessary for you to write any scripts for <b>FASTDocs</b> to work, <b>FASTDocs</b> gives a one crucial function for your own scripts to be executed when a section is loaded.</p>
+    <p>First parameter for <code>docs.onSectionLoad</code> is a function which will be called. The second parameter is a boolean for whether the function will be executed once or every time. Example use case is given below:</p>
+    <pre><code>docs.onSectionLoad(function (section) {
+  console.log("Loaded: " + section.title + " once"); //This code piece will be executed only once
+}, true);
 
-<section data-title="Section Berry" data-tags="duis magna, curabitur, aliquam" data-desc="Testing if desc works.">
-  <h1>Section Berry</h1>
-  <p>Aliquam facilisis, nibh eget posuere suscipit, arcu sapien iaculis odio, in molestie dolor
-    lectus
-    vitae sem. Cras id nunc mollis mi rutrum dapibus. Quisque rutrum a augue at scelerisque.
-    Praesent faucibus ac enim vitae gravida. Sed et sodales elit. Duis magna lectus, interdum
-    sit
-    amet metus a, sagittis varius magna. Proin nibh lectus, egestas a luctus ut, dapibus et
-    enim.
-    Curabitur fringilla ipsum vitae nunc imperdiet consectetur eget non neque. Suspendisse
-    ultricies
-    odio quis lorem vulputate, ac vulputate turpis feugiat. Maecenas posuere rhoncus orci, in
-    ornare
-    velit suscipit tempor. Curabitur pretium nisl id lorem placerat consequat. In quis quam
-    eros.
-    Nam mattis elit eu quam sagittis, in varius erat tempor.</p>
+docs.onSectionLoad(function (section) {
+  console.log(section); //This code piece will be executed every time
+});</code></pre>
+  </section>
+  </section>
 </section>

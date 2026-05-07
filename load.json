@@ -1,3 +1,7 @@
-[
-    "sections/content.html"
-]
+{
+    "document": "FASTDocs",
+    "separator": " | ",
+    "sections": [
+        "sections/content.html"
+    ]
+}

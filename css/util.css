@@ -1,0 +1,889 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+*,::after,::before{box-sizing:border-box}button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}details,main{display:block}h1{font-size:2em;margin:.67em 0}hr{height:0}ul,ol{list-style-position:inside}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+/*PRINT*/
+@media print {
+* {
+  background: transparent !important;
+  color: black !important;
+  -webkit-print-color-adjust: economy;
+  print-color-adjust: economy;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  overflow: visible !important;
+}
+
+.\-break\-before {
+  page-break-before: always;
+}
+
+.\-break\-after {
+  page-break-after: always;
+}
+
+.\-break\-avoid {
+  page-break-inside: avoid;
+}
+}
+
+/*GRID*/
+.debug, .debug * {
+  border: 0.2em solid #f00 !important;
+}
+.grid\-x.debug, .grid\-y.debug, .debug .grid\-x, .debug .grid\-y {
+  border: 0.2em solid #00f !important;
+}
+.cell.debug, .debug .cell {
+  border: 0.2em solid #0ff !important;
+}
+
+.grid\-x            { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; }
+.grid\-y            { display: flex; flex-direction: column; flex-wrap: nowrap; width: auto; height: 100%; }
+
+.grid\-x.\-frame    { width: 100vw; }
+.grid\-x.\-full     { height: 100%; }
+.grid\-x.\-reverse  { flex-direction: row-reverse; }
+
+.grid\-y.\-frame    { height: 100vh; }
+.grid\-y.\-full     { width: 100%; }
+.grid\-y.\-reverse  { flex-direction: column-reverse; }
+
+.grid\-x.\-left, .grid\-y.\-left         { justify-content: flex-start; }
+.grid\-x.\-center, .grid\-y.\-center     { justify-content: center; }
+.grid\-x.\-right, .grid\-y.\-right       { justify-content: flex-end; }
+.grid\-x.\-between, .grid\-y.\-between   { justify-content: space-between; }
+.grid\-x.\-around, .grid\-y.\-around     { justify-content: space-around; }
+
+.grid\-x.\-top, .grid\-y.\-top           { align-items: flex-start; }
+.grid\-x.\-middle, .grid\-y.\-middle     { align-items: center; }
+.grid\-x.\-bottom, .grid\-y.\-bottom     { align-items: flex-end; }
+.grid\-x.\-stretch, .grid\-y.\-stretch   { align-items: stretch; }
+.grid\-x.\-baseline, .grid\-y.\-baseline { align-items: baseline; }
+
+.cell                { flex-shrink: 0; overflow: auto; }
+.cell.\-auto         { width: auto; height: auto; display: block; min-width: 0; flex-grow: 0; flex-basis: auto; }
+.cell.\-fill         { width: auto; height: auto; display: block; min-width: 0; flex-grow: 1; flex-basis: 0; }
+
+.cell.\-overflow     { overflow: visible; }
+.cell.\-inherit\-x   { width: inherit; }
+.cell.\-inherit\-y   { height: inherit; }
+
+.grid\-x>.cell.\-0    { width: 0; display: none; min-width: 0; flex-grow: 0; }
+.grid\-x>.cell.\-1    { width: calc(-0.1px + 100% * 1 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-2    { width: calc(-0.1px + 100% * 2 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-3    { width: calc(-0.1px + 100% * 3 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-4    { width: calc(-0.1px + 100% * 4 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-5    { width: calc(-0.1px + 100% * 5 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-6    { width: calc(-0.1px + 100% * 6 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-7    { width: calc(-0.1px + 100% * 7 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-8    { width: calc(-0.1px + 100% * 8 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-9    { width: calc(-0.1px + 100% * 9 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-10   { width: calc(-0.1px + 100% * 10 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-11   { width: calc(-0.1px + 100% * 11 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-12   { width: 100%; display: block; min-width:auto; flex-grow:0; }
+
+.grid\-y>.cell.\-0    { height: 0; display: none; min-height: 0; flex-grow: 0; }
+.grid\-y>.cell.\-1    { height: calc(-0.1px + 100% * 1 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-2    { height: calc(-0.1px + 100% * 2 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-3    { height: calc(-0.1px + 100% * 3 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-4    { height: calc(-0.1px + 100% * 4 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-5    { height: calc(-0.1px + 100% * 5 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-6    { height: calc(-0.1px + 100% * 6 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-7    { height: calc(-0.1px + 100% * 7 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-8    { height: calc(-0.1px + 100% * 8 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-9    { height: calc(-0.1px + 100% * 9 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-10   { height: calc(-0.1px + 100% * 10 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-11   { height: calc(-0.1px + 100% * 11 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-12   { height: 100%; display: block; min-height:auto; flex-grow:0; }
+
+.grid\-x>.cell.\-push\-0, .grid\-x.\-reverse>.cell.\-pull\-0    { margin-left: 0; }
+.grid\-x>.cell.\-push\-1, .grid\-x.\-reverse>.cell.\-pull\-1    { margin-left: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-push\-2, .grid\-x.\-reverse>.cell.\-pull\-2    { margin-left: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-push\-3, .grid\-x.\-reverse>.cell.\-pull\-3    { margin-left: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-push\-4, .grid\-x.\-reverse>.cell.\-pull\-4    { margin-left: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-push\-5, .grid\-x.\-reverse>.cell.\-pull\-5    { margin-left: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-push\-6, .grid\-x.\-reverse>.cell.\-pull\-6    { margin-left: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-push\-7, .grid\-x.\-reverse>.cell.\-pull\-7    { margin-left: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-push\-8, .grid\-x.\-reverse>.cell.\-pull\-8    { margin-left: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-push\-9, .grid\-x.\-reverse>.cell.\-pull\-9    { margin-left: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-push\-10, .grid\-x.\-reverse>.cell.\-pull\-10  { margin-left: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-push\-11, .grid\-x.\-reverse>.cell.\-pull\-11  { margin-left: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-push\-12, .grid\-x.\-reverse>.cell.\-pull\-12  { margin-left: 100%; }
+
+.grid\-x>.cell.\-pull\-0, .grid\-x.\-reverse>.cell.\-push\-0    { margin-right: 0; }
+.grid\-x>.cell.\-pull\-1, .grid\-x.\-reverse>.cell.\-push\-1    { margin-right: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-pull\-2, .grid\-x.\-reverse>.cell.\-push\-2    { margin-right: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-pull\-3, .grid\-x.\-reverse>.cell.\-push\-3    { margin-right: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-pull\-4, .grid\-x.\-reverse>.cell.\-push\-4    { margin-right: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-pull\-5, .grid\-x.\-reverse>.cell.\-push\-5    { margin-right: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-pull\-6, .grid\-x.\-reverse>.cell.\-push\-6    { margin-right: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-pull\-7, .grid\-x.\-reverse>.cell.\-push\-7    { margin-right: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-pull\-8, .grid\-x.\-reverse>.cell.\-push\-8    { margin-right: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-pull\-9, .grid\-x.\-reverse>.cell.\-push\-9    { margin-right: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-pull\-10, .grid\-x.\-reverse>.cell.\-push\-10  { margin-right: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-pull\-11, .grid\-x.\-reverse>.cell.\-push\-11  { margin-right: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-pull\-12, .grid\-x.\-reverse>.cell.\-push\-12  { margin-right: 100%; }
+
+.grid\-y>.cell.\-push\-0, .grid\-y.\-reverse>.cell.\-pull\-0    { margin-top: 0; }
+.grid\-y>.cell.\-push\-1, .grid\-y.\-reverse>.cell.\-pull\-1    { margin-top: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-push\-2, .grid\-y.\-reverse>.cell.\-pull\-2    { margin-top: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-push\-3, .grid\-y.\-reverse>.cell.\-pull\-3    { margin-top: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-push\-4, .grid\-y.\-reverse>.cell.\-pull\-4    { margin-top: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-push\-5, .grid\-y.\-reverse>.cell.\-pull\-5    { margin-top: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-push\-6, .grid\-y.\-reverse>.cell.\-pull\-6    { margin-top: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-push\-7, .grid\-y.\-reverse>.cell.\-pull\-7    { margin-top: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-push\-8, .grid\-y.\-reverse>.cell.\-pull\-8    { margin-top: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-push\-9, .grid\-y.\-reverse>.cell.\-pull\-9    { margin-top: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-push\-10, .grid\-y.\-reverse>.cell.\-pull\-10  { margin-top: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-push\-11, .grid\-y.\-reverse>.cell.\-pull\-11  { margin-top: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-push\-12, .grid\-y.\-reverse>.cell.\-pull\-12  { margin-top: 100%; }
+
+.grid\-y>.cell.\-pull\-0, .grid\-y.\-reverse>.cell.\-push\-0    { margin-bottom: 0; }
+.grid\-y>.cell.\-pull\-1, .grid\-y.\-reverse>.cell.\-push\-1    { margin-bottom: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-pull\-2, .grid\-y.\-reverse>.cell.\-push\-2    { margin-bottom: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-pull\-3, .grid\-y.\-reverse>.cell.\-push\-3    { margin-bottom: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-pull\-4, .grid\-y.\-reverse>.cell.\-push\-4    { margin-bottom: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-pull\-5, .grid\-y.\-reverse>.cell.\-push\-5    { margin-bottom: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-pull\-6, .grid\-y.\-reverse>.cell.\-push\-6    { margin-bottom: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-pull\-7, .grid\-y.\-reverse>.cell.\-push\-7    { margin-bottom: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-pull\-8, .grid\-y.\-reverse>.cell.\-push\-8    { margin-bottom: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-pull\-9, .grid\-y.\-reverse>.cell.\-push\-9    { margin-bottom: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-pull\-10, .grid\-y.\-reverse>.cell.\-push\-10  { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-pull\-11, .grid\-y.\-reverse>.cell.\-push\-11  { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-pull\-12, .grid\-y.\-reverse>.cell.\-push\-12  { margin-bottom: 100%; }
+
+@media print,
+screen and (min-width: 40em) {
+.grid\-x.\-frame\_medium    { width: 100vw; }
+.grid\-x.\-full\_medium     { height: 100%; }
+.grid\-x.\-reverse\_medium  { flex-direction: row-reverse; }
+
+.grid\-y.\-frame\_medium    { height: 100vh; }
+.grid\-y.\-full\_medium     { width: 100%; }
+.grid\-y.\-reverse\_medium  { flex-direction: column-reverse; }
+
+.grid\-x.\-left\_medium, .grid\-y.\-left\_medium         { justify-content: flex-start; }
+.grid\-x.\-center\_medium, .grid\-y.\-center\_medium     { justify-content: center; }
+.grid\-x.\-right\_medium, .grid\-y.\-right\_medium       { justify-content: flex-end; }
+.grid\-x.\-between\_medium, .grid\-y.\-between\_medium   { justify-content: space-between; }
+.grid\-x.\-around\_medium, .grid\-y.\-around\_medium     { justify-content: space-around; }
+
+.grid\-x.\-top\_medium, .grid\-y.\-top\_medium           { align-items: flex-start; }
+.grid\-x.\-middle\_medium, .grid\-y.\-middle\_medium     { align-items: center; }
+.grid\-x.\-bottom\_medium, .grid\-y.\-bottom\_medium     { align-items: flex-end; }
+.grid\-x.\-stretch\_medium, .grid\-y.\-stretch\_medium   { align-items: stretch; }
+.grid\-x.\-baseline\_medium, .grid\-y.\-baseline\_medium { align-items: baseline; }
+
+.cell.\-auto\_medium     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 0; flex-basis: auto; }
+.cell.\-fill\_medium     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 1; flex-basis: 0;}
+
+.cell.\-overflow\_medium     { overflow: visible; }
+.cell.\-inherit\-x\_medium   { width: inherit; }
+.cell.\-inherit\-y\_medium   { height: inherit; }
+
+.grid\-x>.cell.\-0\_medium    { width: 0; display: none; min-width: 0; flex-grow: 0; }
+.grid\-x>.cell.\-1\_medium    { width: calc(-0.1px + 100% * 1 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-2\_medium    { width: calc(-0.1px + 100% * 2 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-3\_medium    { width: calc(-0.1px + 100% * 3 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-4\_medium    { width: calc(-0.1px + 100% * 4 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-5\_medium    { width: calc(-0.1px + 100% * 5 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-6\_medium    { width: calc(-0.1px + 100% * 6 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-7\_medium    { width: calc(-0.1px + 100% * 7 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-8\_medium    { width: calc(-0.1px + 100% * 8 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-9\_medium    { width: calc(-0.1px + 100% * 9 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-10\_medium   { width: calc(-0.1px + 100% * 10 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-11\_medium   { width: calc(-0.1px + 100% * 11 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-12\_medium   { width: 100%; display: block; min-width:auto; flex-grow:0; }
+
+.grid\-y>.cell.\-0\_medium    { height: 0; display: none; min-height: 0; flex-grow: 0; }
+.grid\-y>.cell.\-1\_medium    { height: calc(-0.1px + 100% * 1 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-2\_medium    { height: calc(-0.1px + 100% * 2 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-3\_medium    { height: calc(-0.1px + 100% * 3 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-4\_medium    { height: calc(-0.1px + 100% * 4 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-5\_medium    { height: calc(-0.1px + 100% * 5 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-6\_medium    { height: calc(-0.1px + 100% * 6 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-7\_medium    { height: calc(-0.1px + 100% * 7 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-8\_medium    { height: calc(-0.1px + 100% * 8 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-9\_medium    { height: calc(-0.1px + 100% * 9 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-10\_medium   { height: calc(-0.1px + 100% * 10 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-11\_medium   { height: calc(-0.1px + 100% * 11 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-12\_medium   { height: 100%; display: block; min-height:auto; flex-grow:0; }
+
+.grid\-x>.cell.\-push\-0\_medium, .grid\-x.\-reverse>.cell.\-pull\-0\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-0\_medium    { margin-left: 0; }
+.grid\-x>.cell.\-push\-1\_medium, .grid\-x.\-reverse>.cell.\-pull\-1\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-1\_medium    { margin-left: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-push\-2\_medium, .grid\-x.\-reverse>.cell.\-pull\-2\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-2\_medium    { margin-left: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-push\-3\_medium, .grid\-x.\-reverse>.cell.\-pull\-3\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-3\_medium    { margin-left: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-push\-4\_medium, .grid\-x.\-reverse>.cell.\-pull\-4\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-4\_medium    { margin-left: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-push\-5\_medium, .grid\-x.\-reverse>.cell.\-pull\-5\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-5\_medium    { margin-left: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-push\-6\_medium, .grid\-x.\-reverse>.cell.\-pull\-6\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-6\_medium    { margin-left: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-push\-7\_medium, .grid\-x.\-reverse>.cell.\-pull\-7\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-7\_medium    { margin-left: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-push\-8\_medium, .grid\-x.\-reverse>.cell.\-pull\-8\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-8\_medium    { margin-left: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-push\-9\_medium, .grid\-x.\-reverse>.cell.\-pull\-9\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-9\_medium    { margin-left: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-push\-10\_medium, .grid\-x.\-reverse>.cell.\-pull\-10\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-10\_medium { margin-left: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-push\-11\_medium, .grid\-x.\-reverse>.cell.\-pull\-11\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-11\_medium { margin-left: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-push\-12\_medium, .grid\-x.\-reverse>.cell.\-pull\-12\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-12\_medium { margin-left: 100%; }
+
+.grid\-x>.cell.\-pull\-0\_medium, .grid\-x.\-reverse>.cell.\-push\-0\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-0\_medium    { margin-right: 0; }
+.grid\-x>.cell.\-pull\-1\_medium, .grid\-x.\-reverse>.cell.\-push\-1\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-1\_medium    { margin-right: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-pull\-2\_medium, .grid\-x.\-reverse>.cell.\-push\-2\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-2\_medium    { margin-right: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-pull\-3\_medium, .grid\-x.\-reverse>.cell.\-push\-3\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-3\_medium    { margin-right: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-pull\-4\_medium, .grid\-x.\-reverse>.cell.\-push\-4\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-4\_medium    { margin-right: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-pull\-5\_medium, .grid\-x.\-reverse>.cell.\-push\-5\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-5\_medium    { margin-right: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-pull\-6\_medium, .grid\-x.\-reverse>.cell.\-push\-6\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-6\_medium    { margin-right: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-pull\-7\_medium, .grid\-x.\-reverse>.cell.\-push\-7\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-7\_medium    { margin-right: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-pull\-8\_medium, .grid\-x.\-reverse>.cell.\-push\-8\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-8\_medium    { margin-right: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-pull\-9\_medium, .grid\-x.\-reverse>.cell.\-push\-9\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-9\_medium    { margin-right: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-pull\-10\_medium, .grid\-x.\-reverse>.cell.\-push\-10\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-10\_medium { margin-right: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-pull\-11\_medium, .grid\-x.\-reverse>.cell.\-push\-11\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-11\_medium { margin-right: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-pull\-12\_medium, .grid\-x.\-reverse>.cell.\-push\-12\_medium, .grid\-x.\-reverse\_medium>.cell.\-push\-12\_medium { margin-right: 100%; }
+
+.grid\-y>.cell.\-push\-0\_medium, .grid\-y.\-reverse>.cell.\-pull\-0\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-0\_medium    { margin-top: 0; }
+.grid\-y>.cell.\-push\-1\_medium, .grid\-y.\-reverse>.cell.\-pull\-1\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-1\_medium    { margin-top: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-push\-2\_medium, .grid\-y.\-reverse>.cell.\-pull\-2\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-2\_medium    { margin-top: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-push\-3\_medium, .grid\-y.\-reverse>.cell.\-pull\-3\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-3\_medium    { margin-top: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-push\-4\_medium, .grid\-y.\-reverse>.cell.\-pull\-4\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-4\_medium    { margin-top: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-push\-5\_medium, .grid\-y.\-reverse>.cell.\-pull\-5\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-5\_medium    { margin-top: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-push\-6\_medium, .grid\-y.\-reverse>.cell.\-pull\-6\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-6\_medium    { margin-top: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-push\-7\_medium, .grid\-y.\-reverse>.cell.\-pull\-7\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-7\_medium    { margin-top: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-push\-8\_medium, .grid\-y.\-reverse>.cell.\-pull\-8\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-8\_medium    { margin-top: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-push\-9\_medium, .grid\-y.\-reverse>.cell.\-pull\-9\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-9\_medium    { margin-top: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-push\-10\_medium, .grid\-y.\-reverse>.cell.\-pull\-10\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-10\_medium { margin-top: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-push\-11\_medium, .grid\-y.\-reverse>.cell.\-pull\-11\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-11\_medium { margin-top: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-push\-12\_medium, .grid\-y.\-reverse>.cell.\-pull\-12\_medium, .grid\-y.\-reverse\_medium>.cell.\-pull\-12\_medium { margin-top: 100%; }
+
+.grid\-y>.cell.\-pull\-0\_medium, .grid\-y.\-reverse>.cell.\-push\-0\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-0\_medium    { margin-bottom: 0; }
+.grid\-y>.cell.\-pull\-1\_medium, .grid\-y.\-reverse>.cell.\-push\-1\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-1\_medium    { margin-bottom: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-pull\-2\_medium, .grid\-y.\-reverse>.cell.\-push\-2\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-2\_medium    { margin-bottom: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-pull\-3\_medium, .grid\-y.\-reverse>.cell.\-push\-3\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-3\_medium    { margin-bottom: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-pull\-4\_medium, .grid\-y.\-reverse>.cell.\-push\-4\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-4\_medium    { margin-bottom: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-pull\-5\_medium, .grid\-y.\-reverse>.cell.\-push\-5\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-5\_medium    { margin-bottom: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-pull\-6\_medium, .grid\-y.\-reverse>.cell.\-push\-6\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-6\_medium    { margin-bottom: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-pull\-7\_medium, .grid\-y.\-reverse>.cell.\-push\-7\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-7\_medium    { margin-bottom: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-pull\-8\_medium, .grid\-y.\-reverse>.cell.\-push\-8\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-8\_medium    { margin-bottom: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-pull\-9\_medium, .grid\-y.\-reverse>.cell.\-push\-9\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-9\_medium    { margin-bottom: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-pull\-10\_medium, .grid\-y.\-reverse>.cell.\-push\-10\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-10\_medium { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-pull\-11\_medium, .grid\-y.\-reverse>.cell.\-push\-11\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-11\_medium { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-pull\-12\_medium, .grid\-y.\-reverse>.cell.\-push\-12\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-12\_medium { margin-bottom: 100%; }
+}
+
+@media print,
+screen and (min-width: 64em) {
+.grid\-x.\-frame\_large    { width: 100vw; }
+.grid\-x.\-full\_large     { height: 100%; }
+.grid\-x.\-reverse\_large  { flex-direction: row-reverse; }
+
+.grid\-y.\-frame\_large    { height: 100vh; }
+.grid\-y.\-full\_large     { width: 100%; }
+.grid\-y.\-reverse\_large  { flex-direction: column-reverse; }
+
+.grid\-x.\-left\_large, .grid\-y.\-left\_large         { justify-content: flex-start; }
+.grid\-x.\-center\_large, .grid\-y.\-center\_large     { justify-content: center; }
+.grid\-x.\-right\_large, .grid\-y.\-right\_large       { justify-content: flex-end; }
+.grid\-x.\-between\_large, .grid\-y.\-between\_large   { justify-content: space-between; }
+.grid\-x.\-around\_large, .grid\-y.\-around\_large     { justify-content: space-around; }
+
+.grid\-x.\-top\_large, .grid\-y.\-top\_large           { align-items: flex-start; }
+.grid\-x.\-middle\_large, .grid\-y.\-middle\_large     { align-items: center; }
+.grid\-x.\-bottom\_large, .grid\-y.\-bottom\_large     { align-items: flex-end; }
+.grid\-x.\-stretch\_large, .grid\-y.\-stretch\_large   { align-items: stretch; }
+.grid\-x.\-baseline\_large, .grid\-y.\-baseline\_large { align-items: baseline; }
+
+.cell.\-auto\_large     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 0; flex-basis: auto; }
+.cell.\-fill\_large     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 1; flex-basis: 0;}
+
+.cell.\-overflow\_large     { overflow: visible; }
+.cell.\-inherit\-x\_large   { width: inherit; }
+.cell.\-inherit\-y\_large   { height: inherit; }
+
+.grid\-x>.cell.\-0\_large    { width: 0; display: none; min-width: 0; flex-grow: 0; }
+.grid\-x>.cell.\-1\_large    { width: calc(-0.1px + 100% * 1 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-2\_large    { width: calc(-0.1px + 100% * 2 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-3\_large    { width: calc(-0.1px + 100% * 3 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-4\_large    { width: calc(-0.1px + 100% * 4 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-5\_large    { width: calc(-0.1px + 100% * 5 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-6\_large    { width: calc(-0.1px + 100% * 6 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-7\_large    { width: calc(-0.1px + 100% * 7 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-8\_large    { width: calc(-0.1px + 100% * 8 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-9\_large    { width: calc(-0.1px + 100% * 9 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-10\_large   { width: calc(-0.1px + 100% * 10 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-11\_large   { width: calc(-0.1px + 100% * 11 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-12\_large   { width: 100%; display: block; min-width:auto; flex-grow:0; }
+
+.grid\-y>.cell.\-0\_large    { height: 0; display: none; min-height: 0; flex-grow: 0; }
+.grid\-y>.cell.\-1\_large    { height: calc(-0.1px + 100% * 1 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-2\_large    { height: calc(-0.1px + 100% * 2 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-3\_large    { height: calc(-0.1px + 100% * 3 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-4\_large    { height: calc(-0.1px + 100% * 4 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-5\_large    { height: calc(-0.1px + 100% * 5 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-6\_large    { height: calc(-0.1px + 100% * 6 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-7\_large    { height: calc(-0.1px + 100% * 7 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-8\_large    { height: calc(-0.1px + 100% * 8 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-9\_large    { height: calc(-0.1px + 100% * 9 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-10\_large   { height: calc(-0.1px + 100% * 10 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-11\_large   { height: calc(-0.1px + 100% * 11 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-12\_large   { height: 100%; display: block; min-height:auto; flex-grow:0; }
+
+.grid\-x>.cell.\-push\-0\_large, .grid\-x.\-reverse>.cell.\-pull\-0\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-0\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-0\_large      { margin-left: 0; }
+.grid\-x>.cell.\-push\-1\_large, .grid\-x.\-reverse>.cell.\-pull\-1\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-1\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-1\_large      { margin-left: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-push\-2\_large, .grid\-x.\-reverse>.cell.\-pull\-2\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-2\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-2\_large      { margin-left: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-push\-3\_large, .grid\-x.\-reverse>.cell.\-pull\-3\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-3\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-3\_large      { margin-left: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-push\-4\_large, .grid\-x.\-reverse>.cell.\-pull\-4\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-4\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-4\_large      { margin-left: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-push\-5\_large, .grid\-x.\-reverse>.cell.\-pull\-5\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-5\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-5\_large      { margin-left: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-push\-6\_large, .grid\-x.\-reverse>.cell.\-pull\-6\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-6\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-6\_large      { margin-left: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-push\-7\_large, .grid\-x.\-reverse>.cell.\-pull\-7\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-7\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-7\_large      { margin-left: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-push\-8\_large, .grid\-x.\-reverse>.cell.\-pull\-8\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-8\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-8\_large      { margin-left: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-push\-9\_large, .grid\-x.\-reverse>.cell.\-pull\-9\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-9\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-9\_large      { margin-left: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-push\-10\_large, .grid\-x.\-reverse>.cell.\-pull\-10\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-10\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-10\_large  { margin-left: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-push\-11\_large, .grid\-x.\-reverse>.cell.\-pull\-11\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-11\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-11\_large  { margin-left: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-push\-12\_large, .grid\-x.\-reverse>.cell.\-pull\-12\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-12\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-12\_large  { margin-left: 100%; }
+
+.grid\-x>.cell.\-pull\-0\_large, .grid\-x.\-reverse>.cell.\-push\-0\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-0\_large, .grid\-x.\-reverse\_large>.cell.\-push\-0\_large      { margin-right: 0; }
+.grid\-x>.cell.\-pull\-1\_large, .grid\-x.\-reverse>.cell.\-push\-1\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-1\_large, .grid\-x.\-reverse\_large>.cell.\-push\-1\_large      { margin-right: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-pull\-2\_large, .grid\-x.\-reverse>.cell.\-push\-2\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-2\_large, .grid\-x.\-reverse\_large>.cell.\-push\-2\_large      { margin-right: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-pull\-3\_large, .grid\-x.\-reverse>.cell.\-push\-3\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-3\_large, .grid\-x.\-reverse\_large>.cell.\-push\-3\_large      { margin-right: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-pull\-4\_large, .grid\-x.\-reverse>.cell.\-push\-4\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-4\_large, .grid\-x.\-reverse\_large>.cell.\-push\-4\_large      { margin-right: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-pull\-5\_large, .grid\-x.\-reverse>.cell.\-push\-5\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-5\_large, .grid\-x.\-reverse\_large>.cell.\-push\-5\_large      { margin-right: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-pull\-6\_large, .grid\-x.\-reverse>.cell.\-push\-6\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-6\_large, .grid\-x.\-reverse\_large>.cell.\-push\-6\_large      { margin-right: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-pull\-7\_large, .grid\-x.\-reverse>.cell.\-push\-7\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-7\_large, .grid\-x.\-reverse\_large>.cell.\-push\-7\_large      { margin-right: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-pull\-8\_large, .grid\-x.\-reverse>.cell.\-push\-8\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-8\_large, .grid\-x.\-reverse\_large>.cell.\-push\-8\_large      { margin-right: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-pull\-9\_large, .grid\-x.\-reverse>.cell.\-push\-9\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-9\_large, .grid\-x.\-reverse\_large>.cell.\-push\-9\_large      { margin-right: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-pull\-10\_large, .grid\-x.\-reverse>.cell.\-push\-10\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-10\_large, .grid\-x.\-reverse\_large>.cell.\-push\-10\_large  { margin-right: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-pull\-11\_large, .grid\-x.\-reverse>.cell.\-push\-11\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-11\_large, .grid\-x.\-reverse\_large>.cell.\-push\-11\_large  { margin-right: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-pull\-12\_large, .grid\-x.\-reverse>.cell.\-push\-12\_large, .grid\-x.\-reverse\_medium>.cell.\-push\-12\_large, .grid\-x.\-reverse\_large>.cell.\-push\-12\_large  { margin-right: 100%; }
+
+.grid\-y>.cell.\-push\-0\_large, .grid\-y.\-reverse>.cell.\-pull\-0\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-0\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-0\_large      { margin-top: 0; }
+.grid\-y>.cell.\-push\-1\_large, .grid\-y.\-reverse>.cell.\-pull\-1\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-1\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-1\_large      { margin-top: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-push\-2\_large, .grid\-y.\-reverse>.cell.\-pull\-2\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-2\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-2\_large      { margin-top: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-push\-3\_large, .grid\-y.\-reverse>.cell.\-pull\-3\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-3\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-3\_large      { margin-top: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-push\-4\_large, .grid\-y.\-reverse>.cell.\-pull\-4\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-4\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-4\_large      { margin-top: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-push\-5\_large, .grid\-y.\-reverse>.cell.\-pull\-5\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-5\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-5\_large      { margin-top: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-push\-6\_large, .grid\-y.\-reverse>.cell.\-pull\-6\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-6\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-6\_large      { margin-top: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-push\-7\_large, .grid\-y.\-reverse>.cell.\-pull\-7\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-7\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-7\_large      { margin-top: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-push\-8\_large, .grid\-y.\-reverse>.cell.\-pull\-8\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-8\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-8\_large      { margin-top: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-push\-9\_large, .grid\-y.\-reverse>.cell.\-pull\-9\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-9\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-9\_large      { margin-top: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-push\-10\_large, .grid\-y.\-reverse>.cell.\-pull\-10\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-10\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-10\_large  { margin-top: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-push\-11\_large, .grid\-y.\-reverse>.cell.\-pull\-11\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-11\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-11\_large  { margin-top: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-push\-12\_large, .grid\-y.\-reverse>.cell.\-pull\-12\_large, .grid\-y.\-reverse\_medium>.cell.\-pull\-12\_large, .grid\-y.\-reverse\_large>.cell.\-pull\-12\_large  { margin-top: 100%; }
+
+.grid\-y>.cell.\-pull\-0\_large, .grid\-y.\-reverse>.cell.\-push\-0\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-0\_large, .grid\-y.\-reverse\_large>.cell.\-push\-0\_large      { margin-bottom: 0; }
+.grid\-y>.cell.\-pull\-1\_large, .grid\-y.\-reverse>.cell.\-push\-1\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-1\_large, .grid\-y.\-reverse\_large>.cell.\-push\-1\_large      { margin-bottom: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-pull\-2\_large, .grid\-y.\-reverse>.cell.\-push\-2\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-2\_large, .grid\-y.\-reverse\_large>.cell.\-push\-2\_large      { margin-bottom: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-pull\-3\_large, .grid\-y.\-reverse>.cell.\-push\-3\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-3\_large, .grid\-y.\-reverse\_large>.cell.\-push\-3\_large      { margin-bottom: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-pull\-4\_large, .grid\-y.\-reverse>.cell.\-push\-4\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-4\_large, .grid\-y.\-reverse\_large>.cell.\-push\-4\_large      { margin-bottom: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-pull\-5\_large, .grid\-y.\-reverse>.cell.\-push\-5\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-5\_large, .grid\-y.\-reverse\_large>.cell.\-push\-5\_large      { margin-bottom: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-pull\-6\_large, .grid\-y.\-reverse>.cell.\-push\-6\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-6\_large, .grid\-y.\-reverse\_large>.cell.\-push\-6\_large      { margin-bottom: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-pull\-7\_large, .grid\-y.\-reverse>.cell.\-push\-7\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-7\_large, .grid\-y.\-reverse\_large>.cell.\-push\-7\_large      { margin-bottom: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-pull\-8\_large, .grid\-y.\-reverse>.cell.\-push\-8\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-8\_large, .grid\-y.\-reverse\_large>.cell.\-push\-8\_large      { margin-bottom: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-pull\-9\_large, .grid\-y.\-reverse>.cell.\-push\-9\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-9\_large, .grid\-y.\-reverse\_large>.cell.\-push\-9\_large      { margin-bottom: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-pull\-10\_large, .grid\-y.\-reverse>.cell.\-push\-10\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-10\_large, .grid\-y.\-reverse\_large>.cell.\-push\-10\_large  { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-pull\-11\_large, .grid\-y.\-reverse>.cell.\-push\-11\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-11\_large, .grid\-y.\-reverse\_large>.cell.\-push\-11\_large  { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-pull\-12\_large, .grid\-y.\-reverse>.cell.\-push\-12\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-12\_large, .grid\-y.\-reverse\_large>.cell.\-push\-12\_large  { margin-bottom: 100%; }
+}
+
+@media print {
+.grid\-x.\-frame\_print    { width: 100vw; }
+.grid\-x.\-full\_print     { height: 100%; }
+.grid\-x.\-reverse\_print  { flex-direction: row-reverse; }
+
+.grid\-y.\-frame\_print    { height: 100vh; }
+.grid\-y.\-full\_print     { width: 100%; }
+.grid\-y.\-reverse\_print  { flex-direction: column-reverse; }
+
+.grid\-x.\-left\_print, .grid\-y.\-left\_print         { justify-content: flex-start; }
+.grid\-x.\-center\_print, .grid\-y.\-center\_print     { justify-content: center; }
+.grid\-x.\-right\_print, .grid\-y.\-right\_print       { justify-content: flex-end; }
+.grid\-x.\-between\_print, .grid\-y.\-between\_print   { justify-content: space-between; }
+.grid\-x.\-around\_print, .grid\-y.\-around\_print     { justify-content: space-around; }
+
+.grid\-x.\-top\_print, .grid\-y.\-top\_print           { align-items: flex-start; }
+.grid\-x.\-middle\_print, .grid\-y.\-middle\_print     { align-items: center; }
+.grid\-x.\-bottom\_print, .grid\-y.\-bottom\_print     { align-items: flex-end; }
+.grid\-x.\-stretch\_print, .grid\-y.\-stretch\_print   { align-items: stretch; }
+.grid\-x.\-baseline\_print, .grid\-y.\-baseline\_print { align-items: baseline; }
+
+.cell.\-auto\_print     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 0; flex-basis: auto; }
+.cell.\-fill\_print     { width: auto; height: auto; display: block; min-width: 0; flex-grow: 1; flex-basis: 0;}
+
+.cell.\-overflow\_print     { overflow: visible; }
+.cell.\-inherit\-x\_print   { width: inherit; }
+.cell.\-inherit\-y\_print   { height: inherit; }
+
+.grid\-x>.cell.\-0\_print    { width: 0; display: none; min-width: 0; flex-grow: 0; }
+.grid\-x>.cell.\-1\_print    { width: calc(-0.1px + 100% * 1 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-2\_print    { width: calc(-0.1px + 100% * 2 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-3\_print    { width: calc(-0.1px + 100% * 3 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-4\_print    { width: calc(-0.1px + 100% * 4 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-5\_print    { width: calc(-0.1px + 100% * 5 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-6\_print    { width: calc(-0.1px + 100% * 6 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-7\_print    { width: calc(-0.1px + 100% * 7 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-8\_print    { width: calc(-0.1px + 100% * 8 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-9\_print    { width: calc(-0.1px + 100% * 9 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-10\_print   { width: calc(-0.1px + 100% * 10 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-11\_print   { width: calc(-0.1px + 100% * 11 / 12); display: block; min-width:auto; flex-grow:0; }
+.grid\-x>.cell.\-12\_print   { width: 100%; display: block; min-width:auto; flex-grow:0; }
+
+.grid\-y>.cell.\-0\_print    { height: 0; display: none; min-height: 0; flex-grow: 0; }
+.grid\-y>.cell.\-1\_print    { height: calc(-0.1px + 100% * 1 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-2\_print    { height: calc(-0.1px + 100% * 2 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-3\_print    { height: calc(-0.1px + 100% * 3 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-4\_print    { height: calc(-0.1px + 100% * 4 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-5\_print    { height: calc(-0.1px + 100% * 5 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-6\_print    { height: calc(-0.1px + 100% * 6 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-7\_print    { height: calc(-0.1px + 100% * 7 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-8\_print    { height: calc(-0.1px + 100% * 8 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-9\_print    { height: calc(-0.1px + 100% * 9 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-10\_print   { height: calc(-0.1px + 100% * 10 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-11\_print   { height: calc(-0.1px + 100% * 11 / 12); display: block; min-height:auto; flex-grow:0; }
+.grid\-y>.cell.\-12\_print   { height: 100%; display: block; min-height:auto; flex-grow:0; }
+
+.grid\-x>.cell.\-push\-0\_print, .grid\-x.\-reverse>.cell.\-pull\-0\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-0\_print    { margin-left: 0; }
+.grid\-x>.cell.\-push\-1\_print, .grid\-x.\-reverse>.cell.\-pull\-1\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-1\_print    { margin-left: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-push\-2\_print, .grid\-x.\-reverse>.cell.\-pull\-2\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-2\_print    { margin-left: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-push\-3\_print, .grid\-x.\-reverse>.cell.\-pull\-3\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-3\_print    { margin-left: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-push\-4\_print, .grid\-x.\-reverse>.cell.\-pull\-4\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-4\_print    { margin-left: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-push\-5\_print, .grid\-x.\-reverse>.cell.\-pull\-5\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-5\_print    { margin-left: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-push\-6\_print, .grid\-x.\-reverse>.cell.\-pull\-6\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-6\_print    { margin-left: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-push\-7\_print, .grid\-x.\-reverse>.cell.\-pull\-7\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-7\_print    { margin-left: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-push\-8\_print, .grid\-x.\-reverse>.cell.\-pull\-8\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-8\_print    { margin-left: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-push\-9\_print, .grid\-x.\-reverse>.cell.\-pull\-9\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-9\_print    { margin-left: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-push\-10\_print, .grid\-x.\-reverse>.cell.\-pull\-10\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-10\_print { margin-left: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-push\-11\_print, .grid\-x.\-reverse>.cell.\-pull\-11\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-11\_print { margin-left: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-push\-12\_print, .grid\-x.\-reverse>.cell.\-pull\-12\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-12\_print { margin-left: 100%; }
+
+.grid\-x>.cell.\-pull\-0\_print, .grid\-x.\-reverse>.cell.\-push\-0\_print, .grid\-x.\-reverse\_print>.cell.\-push\-0\_print    { margin-right: 0; }
+.grid\-x>.cell.\-pull\-1\_print, .grid\-x.\-reverse>.cell.\-push\-1\_print, .grid\-x.\-reverse\_print>.cell.\-push\-1\_print    { margin-right: calc(-0.1px + 100% * 1 / 12); }
+.grid\-x>.cell.\-pull\-2\_print, .grid\-x.\-reverse>.cell.\-push\-2\_print, .grid\-x.\-reverse\_print>.cell.\-push\-2\_print    { margin-right: calc(-0.1px + 100% * 2 / 12); }
+.grid\-x>.cell.\-pull\-3\_print, .grid\-x.\-reverse>.cell.\-push\-3\_print, .grid\-x.\-reverse\_print>.cell.\-push\-3\_print    { margin-right: calc(-0.1px + 100% * 3 / 12); }
+.grid\-x>.cell.\-pull\-4\_print, .grid\-x.\-reverse>.cell.\-push\-4\_print, .grid\-x.\-reverse\_print>.cell.\-push\-4\_print    { margin-right: calc(-0.1px + 100% * 4 / 12); }
+.grid\-x>.cell.\-pull\-5\_print, .grid\-x.\-reverse>.cell.\-push\-5\_print, .grid\-x.\-reverse\_print>.cell.\-push\-5\_print    { margin-right: calc(-0.1px + 100% * 5 / 12); }
+.grid\-x>.cell.\-pull\-6\_print, .grid\-x.\-reverse>.cell.\-push\-6\_print, .grid\-x.\-reverse\_print>.cell.\-push\-6\_print    { margin-right: calc(-0.1px + 100% * 6 / 12); }
+.grid\-x>.cell.\-pull\-7\_print, .grid\-x.\-reverse>.cell.\-push\-7\_print, .grid\-x.\-reverse\_print>.cell.\-push\-7\_print    { margin-right: calc(-0.1px + 100% * 7 / 12); }
+.grid\-x>.cell.\-pull\-8\_print, .grid\-x.\-reverse>.cell.\-push\-8\_print, .grid\-x.\-reverse\_print>.cell.\-push\-8\_print    { margin-right: calc(-0.1px + 100% * 8 / 12); }
+.grid\-x>.cell.\-pull\-9\_print, .grid\-x.\-reverse>.cell.\-push\-9\_print, .grid\-x.\-reverse\_print>.cell.\-push\-9\_print    { margin-right: calc(-0.1px + 100% * 9 / 12); }
+.grid\-x>.cell.\-pull\-10\_print, .grid\-x.\-reverse>.cell.\-push\-10\_print, .grid\-x.\-reverse\_print>.cell.\-push\-10\_print { margin-right: calc(-0.1px + 100% * 10 / 12); }
+.grid\-x>.cell.\-pull\-11\_print, .grid\-x.\-reverse>.cell.\-push\-11\_print, .grid\-x.\-reverse\_print>.cell.\-push\-11\_print { margin-right: calc(-0.1px + 100% * 11 / 12); }
+.grid\-x>.cell.\-pull\-12\_print, .grid\-x.\-reverse>.cell.\-push\-12\_print, .grid\-x.\-reverse\_print>.cell.\-push\-12\_print { margin-right: 100%; }
+
+.grid\-y>.cell.\-push\-0\_print, .grid\-y.\-reverse>.cell.\-pull\-0\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-0\_print    { margin-top: 0; }
+.grid\-y>.cell.\-push\-1\_print, .grid\-y.\-reverse>.cell.\-pull\-1\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-1\_print    { margin-top: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-push\-2\_print, .grid\-y.\-reverse>.cell.\-pull\-2\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-2\_print    { margin-top: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-push\-3\_print, .grid\-y.\-reverse>.cell.\-pull\-3\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-3\_print    { margin-top: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-push\-4\_print, .grid\-y.\-reverse>.cell.\-pull\-4\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-4\_print    { margin-top: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-push\-5\_print, .grid\-y.\-reverse>.cell.\-pull\-5\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-5\_print    { margin-top: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-push\-6\_print, .grid\-y.\-reverse>.cell.\-pull\-6\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-6\_print    { margin-top: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-push\-7\_print, .grid\-y.\-reverse>.cell.\-pull\-7\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-7\_print    { margin-top: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-push\-8\_print, .grid\-y.\-reverse>.cell.\-pull\-8\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-8\_print    { margin-top: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-push\-9\_print, .grid\-y.\-reverse>.cell.\-pull\-9\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-9\_print    { margin-top: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-push\-10\_print, .grid\-y.\-reverse>.cell.\-pull\-10\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-10\_print { margin-top: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-push\-11\_print, .grid\-y.\-reverse>.cell.\-pull\-11\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-11\_print { margin-top: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-push\-12\_print, .grid\-y.\-reverse>.cell.\-pull\-12\_print, .grid\-y.\-reverse\_print>.cell.\-pull\-12\_print { margin-top: 100%; }
+
+.grid\-y>.cell.\-pull\-0\_print, .grid\-y.\-reverse>.cell.\-push\-0\_print, .grid\-y.\-reverse\_print>.cell.\-push\-0\_print    { margin-bottom: 0; }
+.grid\-y>.cell.\-pull\-1\_print, .grid\-y.\-reverse>.cell.\-push\-1\_print, .grid\-y.\-reverse\_print>.cell.\-push\-1\_print    { margin-bottom: calc(-0.1px + 100% * 1 / 12); }
+.grid\-y>.cell.\-pull\-2\_print, .grid\-y.\-reverse>.cell.\-push\-2\_print, .grid\-y.\-reverse\_print>.cell.\-push\-2\_print    { margin-bottom: calc(-0.1px + 100% * 2 / 12); }
+.grid\-y>.cell.\-pull\-3\_print, .grid\-y.\-reverse>.cell.\-push\-3\_print, .grid\-y.\-reverse\_print>.cell.\-push\-3\_print    { margin-bottom: calc(-0.1px + 100% * 3 / 12); }
+.grid\-y>.cell.\-pull\-4\_print, .grid\-y.\-reverse>.cell.\-push\-4\_print, .grid\-y.\-reverse\_print>.cell.\-push\-4\_print    { margin-bottom: calc(-0.1px + 100% * 4 / 12); }
+.grid\-y>.cell.\-pull\-5\_print, .grid\-y.\-reverse>.cell.\-push\-5\_print, .grid\-y.\-reverse\_print>.cell.\-push\-5\_print    { margin-bottom: calc(-0.1px + 100% * 5 / 12); }
+.grid\-y>.cell.\-pull\-6\_print, .grid\-y.\-reverse>.cell.\-push\-6\_print, .grid\-y.\-reverse\_print>.cell.\-push\-6\_print    { margin-bottom: calc(-0.1px + 100% * 6 / 12); }
+.grid\-y>.cell.\-pull\-7\_print, .grid\-y.\-reverse>.cell.\-push\-7\_print, .grid\-y.\-reverse\_print>.cell.\-push\-7\_print    { margin-bottom: calc(-0.1px + 100% * 7 / 12); }
+.grid\-y>.cell.\-pull\-8\_print, .grid\-y.\-reverse>.cell.\-push\-8\_print, .grid\-y.\-reverse\_print>.cell.\-push\-8\_print    { margin-bottom: calc(-0.1px + 100% * 8 / 12); }
+.grid\-y>.cell.\-pull\-9\_print, .grid\-y.\-reverse>.cell.\-push\-9\_print, .grid\-y.\-reverse\_print>.cell.\-push\-9\_print    { margin-bottom: calc(-0.1px + 100% * 9 / 12); }
+.grid\-y>.cell.\-pull\-10\_print, .grid\-y.\-reverse>.cell.\-push\-10\_print, .grid\-y.\-reverse\_print>.cell.\-push\-10\_print { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
+.grid\-y>.cell.\-pull\-11\_print, .grid\-y.\-reverse>.cell.\-push\-11\_print, .grid\-y.\-reverse\_print>.cell.\-push\-11\_print { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
+.grid\-y>.cell.\-pull\-12\_print, .grid\-y.\-reverse>.cell.\-push\-12\_print, .grid\-y.\-reverse\_print>.cell.\-push\-12\_print { margin-bottom: 100%; }
+}
+
+/*ASPECT RATIO*/
+.ratio {
+  height: 0;
+  position: relative;
+}
+.ratio > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ratio.\-1x1 { padding-bottom:100%; }
+
+.ratio.\-21x9 { padding-bottom: calc(-0.1px + 100% * 9 / 21); }
+.ratio.\-9x21 { padding-bottom: calc(-0.1px + 100% * 21 / 9); }
+
+.ratio.\-16x9 { padding-bottom: calc(-0.1px + 100% * 9 / 16); }
+.ratio.\-9x16 { padding-bottom: calc(-0.1px + 100% * 16 / 9); }
+
+.ratio.\-16x10, .ratio.\-8x5 { padding-bottom: calc(-0.1px + 100% * 5 / 8); }
+.ratio.\-10x16, .ratio.\-5x8 { padding-bottom: calc(-0.1px + 100% * 8 / 5); }
+
+.ratio.\-5x4 { padding-bottom: calc(-0.1px + 100% * 4 / 5); }
+.ratio.\-4x5 { padding-bottom: calc(-0.1px + 100% * 5 / 4); }
+
+.ratio.\-4x3 { padding-bottom: calc(-0.1px + 100% * 3 / 4); }
+.ratio.\-3x4 { padding-bottom: calc(-0.1px + 100% * 4 / 3); }
+
+.ratio.\-3x2 { padding-bottom: calc(-0.1px + 100% * 2 / 3); }
+.ratio.\-2x3 { padding-bottom: calc(-0.1px + 100% * 3 / 2); }
+
+@media print,
+screen and (min-width: 40em) {
+.ratio.\-1x1\_medium { padding-bottom:100%;}
+
+.ratio.\-21x9\_medium { padding-bottom: calc(-0.1px + 100% * 9 / 21); }
+.ratio.\-9x21\_medium { padding-bottom: calc(-0.1px + 100% * 21 / 9); }
+
+.ratio.\-16x9\_medium { padding-bottom: calc(-0.1px + 100% * 9 / 16); }
+.ratio.\-9x16\_medium { padding-bottom: calc(-0.1px + 100% * 16 / 9); }
+
+.ratio.\-16x10\_medium, .ratio.\-8x5\_medium { padding-bottom: calc(-0.1px + 100% * 5 / 8); }
+.ratio.\-10x16\_medium, .ratio.\-5x8\_medium { padding-bottom: calc(-0.1px + 100% * 8 / 5); }
+
+.ratio.\-5x4\_medium { padding-bottom: calc(-0.1px + 100% * 4 / 5); }
+.ratio.\-4x5\_medium { padding-bottom: calc(-0.1px + 100% * 5 / 4); }
+
+.ratio.\-4x3\_medium { padding-bottom: calc(-0.1px + 100% * 3 / 4); }
+.ratio.\-3x4\_medium { padding-bottom: calc(-0.1px + 100% * 4 / 3); }
+
+.ratio.\-3x2\_medium { padding-bottom: calc(-0.1px + 100% * 2 / 3); }
+.ratio.\-2x3\_medium { padding-bottom: calc(-0.1px + 100% * 3 / 2); }
+}
+
+@media print,
+screen and (min-width: 64em) {
+.ratio.\-1x1\_large { padding-bottom:100%; }
+
+.ratio.\-21x9\_large { padding-bottom: calc(-0.1px + 100% * 9 / 21); }
+.ratio.\-9x21\_large { padding-bottom: calc(-0.1px + 100% * 21 / 9); }
+
+.ratio.\-16x9\_large { padding-bottom: calc(-0.1px + 100% * 9 / 16); }
+.ratio.\-9x16\_large { padding-bottom: calc(-0.1px + 100% * 16 / 9); }
+
+.ratio.\-16x10\_large, .ratio.\-8x5\_large { padding-bottom: calc(-0.1px + 100% * 5 / 8); }
+.ratio.\-10x16\_large, .ratio.\-5x8\_large { padding-bottom: calc(-0.1px + 100% * 8 / 5); }
+
+.ratio.\-5x4\_large { padding-bottom: calc(-0.1px + 100% * 4 / 5); }
+.ratio.\-4x5\_large { padding-bottom: calc(-0.1px + 100% * 5 / 4); }
+
+.ratio.\-4x3\_large { padding-bottom: calc(-0.1px + 100% * 3 / 4); }
+.ratio.\-3x4\_large { padding-bottom: calc(-0.1px + 100% * 4 / 3); }
+
+.ratio.\-3x2\_large { padding-bottom: calc(-0.1px + 100% * 2 / 3); }
+.ratio.\-2x3\_large { padding-bottom: calc(-0.1px + 100% * 3 / 2); }
+}
+
+@media print {
+.ratio.\-1x1\_print { padding-bottom:100%;}
+
+.ratio.\-21x9\_print { padding-bottom: calc(-0.1px + 100% * 9 / 21); }
+.ratio.\-9x21\_print { padding-bottom: calc(-0.1px + 100% * 21 / 9); }
+
+.ratio.\-16x9\_print { padding-bottom: calc(-0.1px + 100% * 9 / 16); }
+.ratio.\-9x16\_print { padding-bottom: calc(-0.1px + 100% * 16 / 9); }
+
+.ratio.\-16x10\_print, .ratio.\-8x5\_print { padding-bottom: calc(-0.1px + 100% * 5 / 8); }
+.ratio.\-10x16\_print, .ratio.\-5x8\_print { padding-bottom: calc(-0.1px + 100% * 8 / 5); }
+
+.ratio.\-5x4\_print { padding-bottom: calc(-0.1px + 100% * 4 / 5); }
+.ratio.\-4x5\_print { padding-bottom: calc(-0.1px + 100% * 5 / 4); }
+
+.ratio.\-4x3\_print {padding-bottom: calc(-0.1px + 100% * 3 / 4); }
+.ratio.\-3x4\_print { padding-bottom: calc(-0.1px + 100% * 4 / 3); }
+
+.ratio.\-3x2\_print { padding-bottom: calc(-0.1px + 100% * 2 / 3); }
+.ratio.\-2x3\_print { padding-bottom: calc(-0.1px + 100% * 3 / 2); }
+}
+
+/*POSITION*/
+.\-relative { position: relative; }
+.\-absolute { position: absolute; }
+.\-fixed    { position: fixed; }
+.\-relative { position: static; }
+.\-absolute { position: sticky; }
+
+.\-top\-left      { top: 0; left: 0; }
+.\-top\-center    { top: 0; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right     { top: 0; right: 0; }
+
+.\-middle\-left   { top: 50%; left: 0; transform: translate(0, -50%); }
+.\-middle\-center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.\-middle\-right  { top: 50%; right: 0; transform: translate(0, -50%); }
+
+.\-bottom\-left   { bottom: 0; left: 0; }
+.\-bottom\-center { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.\-bottom\-right  { bottom: 0; right: 0; }
+
+@media print,
+screen and (min-width: 40em) {
+.\-relative\_medium { position: relative; }
+.\-absolute\_medium { position: absolute; }
+.\-fixed\_medium    { position: fixed; }
+.\-relative\_medium { position: static; }
+.\-absolute\_medium { position: sticky; }
+
+.\-top\-left\_medium      { top: 0; left: 0; }
+.\-top\-center\_medium    { top: 0; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\_medium     { top: 0; right: 0; }
+
+.\-middle\-left\_medium   { top: 50%; left: 0; transform: translate(0, -50%); }
+.\-middle\-center\_medium { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.\-middle\-right\_medium  { top: 50%; right: 0; transform: translate(0, -50%); }
+
+.\-bottom\-left\_medium   { bottom: 0; left: 0; }
+.\-bottom\-center\_medium { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.\-bottom\-right\_medium  { bottom: 0; right: 0; }
+}
+
+@media print,
+screen and (min-width: 64em) {
+.\-relative\_large { position: relative; }
+.\-absolute\_large { position: absolute; }
+.\-fixed\_large    { position: fixed; }
+.\-relative\_large { position: static; }
+.\-absolute\_large { position: sticky; }
+
+.\-top\-left\_large      { top: 0; left: 0; }
+.\-top\-center\_large    { top: 0; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\_large     { top: 0; right: 0; }
+
+.\-middle\-left\_large   { top: 50%; left: 0; transform: translate(0, -50%); }
+.\-middle\-center\_large { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.\-middle\-right\_large  { top: 50%; right: 0; transform: translate(0, -50%); }
+
+.\-bottom\-left\_large   { bottom: 0; left: 0; }
+.\-bottom\-center\_large { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.\-bottom\-right\_large  { bottom: 0; right: 0; }
+}
+
+@media print {
+.\-relative\_print { position: relative; }
+.\-absolute\_print { position: absolute; }
+.\-fixed\_print    { position: fixed; }
+.\-relative\_print { position: static; }
+.\-absolute\_print { position: sticky; }
+
+.\-top\-left\_print      { top: 0; left: 0; }
+.\-top\-center\_print    { top: 0; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\_print     { top: 0; right: 0; }
+
+.\-middle\-left\_print   { top: 50%; left: 0; transform: translate(0, -50%); }
+.\-middle\-center\_print { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.\-middle\-right\_print  { top: 50%; right: 0; transform: translate(0, -50%); }
+
+.\-bottom\-left\_print   { bottom: 0; left: 0; }
+.\-bottom\-center\_print { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+.\-bottom\-right\_print  { bottom: 0; right: 0; }
+}
+
+/*BACKGROUND*/
+.\-bg\-repeat {
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  background-size: auto;
+}
+.\-bg\-cover {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.\-bg\-contain {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+
+@media print,
+screen and (min-width: 40em) {
+.\-bg\-repeat\_medium {
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  background-size: auto;
+}
+.\-bg\-cover\_medium {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.\-bg\-contain\_medium {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+}
+
+@media print,
+screen and (min-width: 64em) {
+.\-bg\-repeat\_large {
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  background-size: auto;
+}
+.\-bg\-cover\_large {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.\-bg\-contain\_large {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+}
+
+@media print {
+.\-bg\-repeat\_print {
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  background-size: auto;
+}
+.\-bg\-cover\_print {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.\-bg\-contain\_print {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+}
+
+/*TEXT*/
+.\-text\-left {
+  text-align: left;
+}
+.\-text\-right {
+  text-align: right;
+}
+.\-text\-center {
+  text-align: center;
+}
+.\-text\-justify {
+  text-align: justify;
+}
+
+@media print,
+screen and (min-width: 40em) {
+.\-text\-left\_medium {
+  text-align: left;
+}
+.\-text\-right\_medium {
+  text-align: right;
+}
+.\-text\-center\_medium {
+  text-align: center;
+}
+.\-text\-justify\_medium {
+  text-align: justify;
+}
+}
+
+@media print,
+screen and (min-width: 64em) {
+.\-text\-left\_large {
+  text-align: left;
+}
+.\-text\-right\_large {
+  text-align: right;
+}
+.\-text\-center\_large {
+  text-align: center;
+}
+.\-text\-justify\_large {
+  text-align: justify;
+}
+}
+
+@media print {
+.\-text\-left\_print {
+  text-align: left;
+}
+.\-text\-right\_print {
+  text-align: right;
+}
+.\-text\-center\_print {
+  text-align: center;
+}
+.\-text\-justify\_print {
+  text-align: justify;
+}
+}
+
+/*VISIBILITY*/
+.\-invisible { visibility: hidden; }
+.\-visible { visibility: visible; }
+
+@media print,
+screen and (min-width: 40em) {
+.\-invisible\_medium { visibility: hidden; }
+.\-visible\_medium { visibility: visible; }
+}
+
+@media print,
+screen and (min-width: 64em) {
+.\-invisible\_large { visibility: hidden; }
+.\-visible\_large { visibility: visible; }
+}
+
+@media print {
+.\-invisible\_print { visibility: hidden; }
+.\-visible\_print { visibility: visible; }
+}
+
+.\-hide { display: none !important; }
+
+@media print,
+screen and (max-width: 39.99875em) {
+.\-hide\_small\-only { display: none !important; }
+}
+
+@media screen and (max-width: 0em),
+screen and (min-width: 40em) {
+.\-show\_small\-only { display: none !important; }
+}
+
+@media print,
+screen and (min-width: 40em) {
+.\-hide\_medium { display: none !important; }
+}
+
+@media screen and (max-width: 39.99875em) {
+.\-show\_medium { display: none !important; }
+}
+
+@media print,
+screen and (min-width: 40em) and (max-width: 63.99875em) {
+.\-hide\_medium\-only { display: none !important; }
+}
+
+@media screen and (max-width: 39.99875em),
+screen and (min-width: 64em) {
+.\-show\_medium\-only { display: none !important; }
+}
+
+@media print,
+screen and (min-width: 64em) {
+.\-hide\_large { display: none !important; }
+}
+
+@media screen and (max-width: 63.99875em) {
+.\-show\_large { display: none !important; }
+}
+
+@media print,
+screen and (min-width: 64em) and (max-width: 74.99875em) {
+.\-hide\_large\-only { display: none !important; }
+}
+
+@media screen and (max-width: 63.99875em),
+screen and (min-width: 75em) {
+.\-show\_large\-only { display: none !important; }
+}
+
+@media print {
+.\-show\_print {display: block !important;}
+.\-hide\_print {display: none !important;}
+}

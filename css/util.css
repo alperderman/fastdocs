@@ -37,14 +37,20 @@
   border: 0.2em solid #0ff !important;
 }
 
-.grid\-x            { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; height: auto; }
-.grid\-y            { display: flex; flex-direction: column; flex-wrap: wrap; width: auto; height: 100%; }
+.grid\-x            { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; height: auto; overflow: auto; }
+.grid\-y            { display: flex; flex-direction: column; flex-wrap: wrap; width: auto; height: 100%; overflow: auto; }
 
 .grid\-x.\-frame    { width: 100vw; }
 .grid\-x.\-reverse  { flex-direction: row-reverse; }
 
 .grid\-y.\-frame    { height: 100vh; }
 .grid\-y.\-reverse  { flex-direction: column-reverse; }
+
+.grid\-x.\-overflow, .grid\-y.\-overflow           { overflow: visible; }
+
+.grid\-x.\-wrap, .grid\-y.\-wrap                   { flex-wrap: wrap; }
+.grid\-x.\-nowrap, .grid\-y.\-nowrap               { flex-wrap: nowrap; }
+.grid\-x.\-wrap\-reverse, .grid\-y.\-wrap\-reverse { flex-wrap: wrap-reverse; }
 
 .grid\-x.\-left, .grid\-y.\-left         { justify-content: flex-start; }
 .grid\-x.\-center, .grid\-y.\-center     { justify-content: center; }
@@ -62,7 +68,7 @@
 
 .cell.\-overflow      { overflow: visible; }
 
-.grid\-x>.cell.\-full { height: 100%; }
+.grid\-x>.cell.\-full { height: 100%; max-width: none; max-height: none; }
 .grid\-x>.cell.\-auto { width: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-grow { width: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-x>.cell.\-0    { width: 0; flex-grow: 0; flex-basis: auto; }
@@ -79,7 +85,7 @@
 .grid\-x>.cell.\-11   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-12   { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full { width: 100%; }
+.grid\-y>.cell.\-full { width: 100%; max-width: none; max-height: none; }
 .grid\-y>.cell.\-auto { height: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-y>.cell.\-grow { height: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-y>.cell.\-0    { height: 0; flex-grow: 0; flex-basis: auto; }
@@ -160,6 +166,12 @@ screen and (min-width: 40em) {
 .grid\-y.\-frame\_medium    { height: 100vh; }
 .grid\-y.\-reverse\_medium  { flex-direction: column-reverse; }
 
+.grid\-x.\-overflow\_medium, .grid\-y.\-overflow\_medium           { overflow: visible; }
+
+.grid\-x.\-wrap\_medium, .grid\-y.\-wrap\_medium                   { flex-wrap: wrap; }
+.grid\-x.\-nowrap\_medium, .grid\-y.\-nowrap\_medium               { flex-wrap: nowrap; }
+.grid\-x.\-wrap\-reverse\_medium, .grid\-y.\-wrap\-reverse\_medium { flex-wrap: wrap-reverse; }
+
 .grid\-x.\-left\_medium, .grid\-y.\-left\_medium         { justify-content: flex-start; }
 .grid\-x.\-center\_medium, .grid\-y.\-center\_medium     { justify-content: center; }
 .grid\-x.\-right\_medium, .grid\-y.\-right\_medium       { justify-content: flex-end; }
@@ -174,7 +186,7 @@ screen and (min-width: 40em) {
 
 .cell.\-overflow\_medium      { overflow: visible; }
 
-.grid\-x>.cell.\-full\_medium { height: 100%; }
+.grid\-x>.cell.\-full\_medium { height: 100%; max-width: none; max-height: none; }
 .grid\-x>.cell.\-auto\_medium { width: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-grow\_medium { width: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-x>.cell.\-0\_medium    { width: 0; flex-grow: 0; flex-basis: auto; }
@@ -191,7 +203,7 @@ screen and (min-width: 40em) {
 .grid\-x>.cell.\-11\_medium   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-12\_medium   { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_medium { width: 100%; }
+.grid\-y>.cell.\-full\_medium { width: 100%; max-width: none; max-height: none; }
 .grid\-y>.cell.\-auto\_medium { height: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-y>.cell.\-grow\_medium { height: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-y>.cell.\-0\_medium    { height: 0; flex-grow: 0; flex-basis: auto; }
@@ -273,6 +285,12 @@ screen and (min-width: 64em) {
 .grid\-y.\-frame\_large    { height: 100vh; }
 .grid\-y.\-reverse\_large  { flex-direction: column-reverse; }
 
+.grid\-x.\-overflow\_large, .grid\-y.\-overflow\_large           { overflow: visible; }
+
+.grid\-x.\-wrap\_large, .grid\-y.\-wrap\_large                   { flex-wrap: wrap; }
+.grid\-x.\-nowrap\_large, .grid\-y.\-nowrap\_large               { flex-wrap: nowrap; }
+.grid\-x.\-wrap\-reverse\_large, .grid\-y.\-wrap\-reverse\_large { flex-wrap: wrap-reverse; }
+
 .grid\-x.\-left\_large, .grid\-y.\-left\_large         { justify-content: flex-start; }
 .grid\-x.\-center\_large, .grid\-y.\-center\_large     { justify-content: center; }
 .grid\-x.\-right\_large, .grid\-y.\-right\_large       { justify-content: flex-end; }
@@ -287,7 +305,7 @@ screen and (min-width: 64em) {
 
 .cell.\-overflow\_large      { overflow: visible; }
 
-.grid\-x>.cell.\-full\_large { height: 100%; }
+.grid\-x>.cell.\-full\_large { height: 100%; max-width: none; max-height: none; }
 .grid\-x>.cell.\-auto\_large { width: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-grow\_large { width: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-x>.cell.\-0\_large    { width: 0; flex-grow: 0; flex-basis: auto; }
@@ -304,7 +322,7 @@ screen and (min-width: 64em) {
 .grid\-x>.cell.\-11\_large   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-12\_large   { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_large { width: 100%; }
+.grid\-y>.cell.\-full\_large { width: 100%; max-width: none; max-height: none; }
 .grid\-y>.cell.\-auto\_large { height: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-y>.cell.\-grow\_large { height: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-y>.cell.\-0\_large    { height: 0; flex-grow: 0; flex-basis: auto; }
@@ -385,6 +403,12 @@ screen and (min-width: 64em) {
 .grid\-y.\-frame\_print    { height: 100vh; }
 .grid\-y.\-reverse\_print  { flex-direction: column-reverse; }
 
+.grid\-x.\-overflow\_print, .grid\-y.\-overflow\_print           { overflow: visible; }
+
+.grid\-x.\-wrap\_print, .grid\-y.\-wrap\_print                   { flex-wrap: wrap; }
+.grid\-x.\-nowrap\_print, .grid\-y.\-nowrap\_print               { flex-wrap: nowrap; }
+.grid\-x.\-wrap\-reverse\_print, .grid\-y.\-wrap\-reverse\_print { flex-wrap: wrap-reverse; }
+
 .grid\-x.\-left\_print, .grid\-y.\-left\_print         { justify-content: flex-start; }
 .grid\-x.\-center\_print, .grid\-y.\-center\_print     { justify-content: center; }
 .grid\-x.\-right\_print, .grid\-y.\-right\_print       { justify-content: flex-end; }
@@ -399,7 +423,7 @@ screen and (min-width: 64em) {
 
 .cell.\-overflow\_print      { overflow: visible; }
 
-.grid\-x>.cell.\-full\_print { height: 100%; }
+.grid\-x>.cell.\-full\_print { height: 100%; max-width: none; max-height: none; }
 .grid\-x>.cell.\-auto\_print { width: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-grow\_print { width: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-x>.cell.\-0\_print    { width: 0; flex-grow: 0; flex-basis: auto; }
@@ -416,7 +440,7 @@ screen and (min-width: 64em) {
 .grid\-x>.cell.\-11\_print   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
 .grid\-x>.cell.\-12\_print   { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_print { width: 100%; }
+.grid\-y>.cell.\-full\_print { width: 100%; max-width: none; max-height: none; }
 .grid\-y>.cell.\-auto\_print { height: auto; flex-grow: 0; flex-basis: auto; }
 .grid\-y>.cell.\-grow\_print { height: auto; flex-grow: 1; flex-basis: 0; }
 .grid\-y>.cell.\-0\_print    { height: 0; flex-grow: 0; flex-basis: auto; }

@@ -66,7 +66,7 @@
 
 .cell                  { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; flex-shrink: 0; flex-grow: 0; flex-basis: auto; overflow: auto; }
 
-.cell.\-overflow       { overflow: visible; max-width: none; max-height: none; }
+.cell.\-overflow       { overflow: visible; }
 
 .grid\-x>.cell.\-frame { height: 100vh; }
 .grid\-x>.cell.\-auto  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -184,7 +184,7 @@ screen and (min-width: 40em) {
 .grid\-x.\-stretch\_medium, .grid\-y.\-stretch\_medium   { align-items: stretch; }
 .grid\-x.\-baseline\_medium, .grid\-y.\-baseline\_medium { align-items: baseline; }
 
-.cell.\-overflow\_medium       { overflow: visible; max-width: none; max-height: none; }
+.cell.\-overflow\_medium       { overflow: visible; }
 
 .grid\-x>.cell.\-frame\_medium { height: 100vh; }
 .grid\-x>.cell.\-auto\_medium  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -303,7 +303,7 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_large, .grid\-y.\-stretch\_large   { align-items: stretch; }
 .grid\-x.\-baseline\_large, .grid\-y.\-baseline\_large { align-items: baseline; }
 
-.cell.\-overflow\_large       { overflow: visible; max-width: none; max-height: none; }
+.cell.\-overflow\_large       { overflow: visible; }
 
 .grid\-x>.cell.\-frame\_large { height: 100vh; }
 .grid\-x>.cell.\-auto\_large  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -421,7 +421,7 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_print, .grid\-y.\-stretch\_print   { align-items: stretch; }
 .grid\-x.\-baseline\_print, .grid\-y.\-baseline\_print { align-items: baseline; }
 
-.cell.\-overflow\_print       { overflow: visible; max-width: none; max-height: none; }
+.cell.\-overflow\_print       { overflow: visible; }
 
 .grid\-x>.cell.\-frame\_print { height: 100vh; }
 .grid\-x>.cell.\-auto\_print  { width: auto; flex-grow: 0; flex-basis: auto; }

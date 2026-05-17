@@ -37,8 +37,8 @@
   border: 0.2em solid #0ff !important;
 }
 
-.grid\-x            { display: flex; flex-direction: row; flex-wrap: wrap; width: 100%; height: auto; overflow: auto; }
-.grid\-y            { display: flex; flex-direction: column; flex-wrap: wrap; width: auto; height: 100%; overflow: auto; }
+.grid\-x            { display: flex; flex-direction: row; flex-wrap: wrap; width: auto; height: auto; max-width: 100%; max-height: 100%; overflow: auto; }
+.grid\-y            { display: flex; flex-direction: column; flex-wrap: wrap; width: auto; height: auto; max-width: 100%; max-height: 100%; overflow: auto; }
 
 .grid\-x.\-frame    { width: 100vw; }
 .grid\-x.\-reverse  { flex-direction: row-reverse; }
@@ -46,7 +46,7 @@
 .grid\-y.\-frame    { height: 100vh; }
 .grid\-y.\-reverse  { flex-direction: column-reverse; }
 
-.grid\-x.\-overflow, .grid\-y.\-overflow           { overflow: visible; }
+.grid\-x.\-overflow, .grid\-y.\-overflow           { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x.\-wrap, .grid\-y.\-wrap                   { flex-wrap: wrap; }
 .grid\-x.\-nowrap, .grid\-y.\-nowrap               { flex-wrap: nowrap; }
@@ -64,43 +64,43 @@
 .grid\-x.\-stretch, .grid\-y.\-stretch   { align-items: stretch; }
 .grid\-x.\-baseline, .grid\-y.\-baseline { align-items: baseline; }
 
-.cell                 { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; flex-shrink: 0; flex-grow: 0; flex-basis: auto; overflow: auto; }
+.cell                  { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; flex-shrink: 0; flex-grow: 0; flex-basis: auto; overflow: auto; }
 
-.cell.\-overflow      { overflow: visible; }
+.cell.\-overflow       { overflow: visible; max-width: none; max-height: none; }
 
-.grid\-x>.cell.\-full { height: 100%; max-width: none; max-height: none; }
-.grid\-x>.cell.\-auto { width: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-grow { width: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-x>.cell.\-0    { width: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-1    { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-2    { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-3    { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-4    { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-5    { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-6    { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-7    { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-8    { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-9    { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-10   { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-11   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-12   { width: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-frame { height: 100vh; }
+.grid\-x>.cell.\-auto  { width: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-fill  { width: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-x>.cell.\-0     { width: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-1     { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-2     { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-3     { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-4     { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-5     { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-6     { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-7     { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-8     { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-9     { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-10    { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-11    { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-12    { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full { width: 100%; max-width: none; max-height: none; }
-.grid\-y>.cell.\-auto { height: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-grow { height: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-y>.cell.\-0    { height: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-1    { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-2    { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-3    { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-4    { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-5    { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-6    { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-7    { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-8    { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-9    { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-10   { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-11   { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-12   { height: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-frame { width: 100vw; }
+.grid\-y>.cell.\-auto  { height: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-fill  { height: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-y>.cell.\-0     { height: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-1     { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-2     { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-3     { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-4     { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-5     { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-6     { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-7     { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-8     { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-9     { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-10    { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-11    { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-12    { height: 100%; flex-grow: 0; flex-basis: auto; }
 
 .grid\-x>.cell.\-push\-0, .grid\-x.\-reverse>.cell.\-pull\-0    { margin-left: 0; }
 .grid\-x>.cell.\-push\-1, .grid\-x.\-reverse>.cell.\-pull\-1    { margin-left: calc(-0.1px + 100% * 1 / 12); }
@@ -166,7 +166,7 @@ screen and (min-width: 40em) {
 .grid\-y.\-frame\_medium    { height: 100vh; }
 .grid\-y.\-reverse\_medium  { flex-direction: column-reverse; }
 
-.grid\-x.\-overflow\_medium, .grid\-y.\-overflow\_medium           { overflow: visible; }
+.grid\-x.\-overflow\_medium, .grid\-y.\-overflow\_medium           { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x.\-wrap\_medium, .grid\-y.\-wrap\_medium                   { flex-wrap: wrap; }
 .grid\-x.\-nowrap\_medium, .grid\-y.\-nowrap\_medium               { flex-wrap: nowrap; }
@@ -184,41 +184,41 @@ screen and (min-width: 40em) {
 .grid\-x.\-stretch\_medium, .grid\-y.\-stretch\_medium   { align-items: stretch; }
 .grid\-x.\-baseline\_medium, .grid\-y.\-baseline\_medium { align-items: baseline; }
 
-.cell.\-overflow\_medium      { overflow: visible; }
+.cell.\-overflow\_medium       { overflow: visible; max-width: none; max-height: none; }
 
-.grid\-x>.cell.\-full\_medium { height: 100%; max-width: none; max-height: none; }
-.grid\-x>.cell.\-auto\_medium { width: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-grow\_medium { width: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-x>.cell.\-0\_medium    { width: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-1\_medium    { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-2\_medium    { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-3\_medium    { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-4\_medium    { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-5\_medium    { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-6\_medium    { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-7\_medium    { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-8\_medium    { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-9\_medium    { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-10\_medium   { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-11\_medium   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-12\_medium   { width: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-frame\_medium { height: 100vh; }
+.grid\-x>.cell.\-auto\_medium  { width: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-fill\_medium  { width: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-x>.cell.\-0\_medium     { width: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-1\_medium     { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-2\_medium     { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-3\_medium     { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-4\_medium     { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-5\_medium     { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-6\_medium     { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-7\_medium     { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-8\_medium     { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-9\_medium     { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-10\_medium    { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-11\_medium    { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-12\_medium    { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_medium { width: 100%; max-width: none; max-height: none; }
-.grid\-y>.cell.\-auto\_medium { height: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-grow\_medium { height: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-y>.cell.\-0\_medium    { height: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-1\_medium    { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-2\_medium    { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-3\_medium    { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-4\_medium    { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-5\_medium    { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-6\_medium    { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-7\_medium    { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-8\_medium    { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-9\_medium    { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-10\_medium   { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-11\_medium   { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-12\_medium   { height: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-frame\_medium { width: 100vw; }
+.grid\-y>.cell.\-auto\_medium  { height: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-fill\_medium  { height: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-y>.cell.\-0\_medium     { height: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-1\_medium     { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-2\_medium     { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-3\_medium     { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-4\_medium     { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-5\_medium     { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-6\_medium     { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-7\_medium     { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-8\_medium     { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-9\_medium     { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-10\_medium    { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-11\_medium    { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-12\_medium    { height: 100%; flex-grow: 0; flex-basis: auto; }
 
 .grid\-x>.cell.\-push\-0\_medium, .grid\-x.\-reverse>.cell.\-pull\-0\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-0\_medium    { margin-left: 0; }
 .grid\-x>.cell.\-push\-1\_medium, .grid\-x.\-reverse>.cell.\-pull\-1\_medium, .grid\-x.\-reverse\_medium>.cell.\-pull\-1\_medium    { margin-left: calc(-0.1px + 100% * 1 / 12); }
@@ -285,7 +285,7 @@ screen and (min-width: 64em) {
 .grid\-y.\-frame\_large    { height: 100vh; }
 .grid\-y.\-reverse\_large  { flex-direction: column-reverse; }
 
-.grid\-x.\-overflow\_large, .grid\-y.\-overflow\_large           { overflow: visible; }
+.grid\-x.\-overflow\_large, .grid\-y.\-overflow\_large           { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x.\-wrap\_large, .grid\-y.\-wrap\_large                   { flex-wrap: wrap; }
 .grid\-x.\-nowrap\_large, .grid\-y.\-nowrap\_large               { flex-wrap: nowrap; }
@@ -303,41 +303,41 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_large, .grid\-y.\-stretch\_large   { align-items: stretch; }
 .grid\-x.\-baseline\_large, .grid\-y.\-baseline\_large { align-items: baseline; }
 
-.cell.\-overflow\_large      { overflow: visible; }
+.cell.\-overflow\_large       { overflow: visible; max-width: none; max-height: none; }
 
-.grid\-x>.cell.\-full\_large { height: 100%; max-width: none; max-height: none; }
-.grid\-x>.cell.\-auto\_large { width: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-grow\_large { width: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-x>.cell.\-0\_large    { width: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-1\_large    { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-2\_large    { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-3\_large    { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-4\_large    { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-5\_large    { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-6\_large    { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-7\_large    { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-8\_large    { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-9\_large    { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-10\_large   { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-11\_large   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-12\_large   { width: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-frame\_large { height: 100vh; }
+.grid\-x>.cell.\-auto\_large  { width: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-fill\_large  { width: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-x>.cell.\-0\_large     { width: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-1\_large     { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-2\_large     { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-3\_large     { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-4\_large     { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-5\_large     { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-6\_large     { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-7\_large     { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-8\_large     { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-9\_large     { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-10\_large    { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-11\_large    { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-12\_large    { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_large { width: 100%; max-width: none; max-height: none; }
-.grid\-y>.cell.\-auto\_large { height: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-grow\_large { height: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-y>.cell.\-0\_large    { height: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-1\_large    { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-2\_large    { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-3\_large    { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-4\_large    { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-5\_large    { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-6\_large    { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-7\_large    { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-8\_large    { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-9\_large    { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-10\_large   { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-11\_large   { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-12\_large   { height: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-frame\_large { width: 100vw; }
+.grid\-y>.cell.\-auto\_large  { height: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-fill\_large  { height: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-y>.cell.\-0\_large     { height: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-1\_large     { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-2\_large     { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-3\_large     { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-4\_large     { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-5\_large     { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-6\_large     { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-7\_large     { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-8\_large     { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-9\_large     { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-10\_large    { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-11\_large    { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-12\_large    { height: 100%; flex-grow: 0; flex-basis: auto; }
 
 .grid\-x>.cell.\-push\-0\_large, .grid\-x.\-reverse>.cell.\-pull\-0\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-0\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-0\_large      { margin-left: 0; }
 .grid\-x>.cell.\-push\-1\_large, .grid\-x.\-reverse>.cell.\-pull\-1\_large, .grid\-x.\-reverse\_medium>.cell.\-pull\-1\_large, .grid\-x.\-reverse\_large>.cell.\-pull\-1\_large      { margin-left: calc(-0.1px + 100% * 1 / 12); }
@@ -403,7 +403,7 @@ screen and (min-width: 64em) {
 .grid\-y.\-frame\_print    { height: 100vh; }
 .grid\-y.\-reverse\_print  { flex-direction: column-reverse; }
 
-.grid\-x.\-overflow\_print, .grid\-y.\-overflow\_print           { overflow: visible; }
+.grid\-x.\-overflow\_print, .grid\-y.\-overflow\_print           { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x.\-wrap\_print, .grid\-y.\-wrap\_print                   { flex-wrap: wrap; }
 .grid\-x.\-nowrap\_print, .grid\-y.\-nowrap\_print               { flex-wrap: nowrap; }
@@ -421,41 +421,41 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_print, .grid\-y.\-stretch\_print   { align-items: stretch; }
 .grid\-x.\-baseline\_print, .grid\-y.\-baseline\_print { align-items: baseline; }
 
-.cell.\-overflow\_print      { overflow: visible; }
+.cell.\-overflow\_print       { overflow: visible; max-width: none; max-height: none; }
 
-.grid\-x>.cell.\-full\_print { height: 100%; max-width: none; max-height: none; }
-.grid\-x>.cell.\-auto\_print { width: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-grow\_print { width: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-x>.cell.\-0\_print    { width: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-1\_print    { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-2\_print    { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-3\_print    { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-4\_print    { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-5\_print    { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-6\_print    { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-7\_print    { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-8\_print    { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-9\_print    { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-10\_print   { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-11\_print   { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-x>.cell.\-12\_print   { width: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-frame\_print { height: 100vh; }
+.grid\-x>.cell.\-auto\_print  { width: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-fill\_print  { width: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-x>.cell.\-0\_print     { width: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-1\_print     { width: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-2\_print     { width: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-3\_print     { width: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-4\_print     { width: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-5\_print     { width: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-6\_print     { width: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-7\_print     { width: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-8\_print     { width: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-9\_print     { width: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-10\_print    { width: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-11\_print    { width: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-x>.cell.\-12\_print    { width: 100%; flex-grow: 0; flex-basis: auto; }
 
-.grid\-y>.cell.\-full\_print { width: 100%; max-width: none; max-height: none; }
-.grid\-y>.cell.\-auto\_print { height: auto; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-grow\_print { height: auto; flex-grow: 1; flex-basis: 0; }
-.grid\-y>.cell.\-0\_print    { height: 0; flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-1\_print    { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-2\_print    { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-3\_print    { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-4\_print    { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-5\_print    { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-6\_print    { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-7\_print    { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-8\_print    { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-9\_print    { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-10\_print   { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-11\_print   { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
-.grid\-y>.cell.\-12\_print   { height: 100%; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-frame\_print { width: 100vw; }
+.grid\-y>.cell.\-auto\_print  { height: auto; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-fill\_print  { height: auto; flex-grow: 1; flex-basis: 0; }
+.grid\-y>.cell.\-0\_print     { height: 0; flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-1\_print     { height: calc(-0.1px + 100% * 1 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-2\_print     { height: calc(-0.1px + 100% * 2 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-3\_print     { height: calc(-0.1px + 100% * 3 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-4\_print     { height: calc(-0.1px + 100% * 4 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-5\_print     { height: calc(-0.1px + 100% * 5 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-6\_print     { height: calc(-0.1px + 100% * 6 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-7\_print     { height: calc(-0.1px + 100% * 7 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-8\_print     { height: calc(-0.1px + 100% * 8 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-9\_print     { height: calc(-0.1px + 100% * 9 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-10\_print    { height: calc(-0.1px + 100% * 10 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-11\_print    { height: calc(-0.1px + 100% * 11 / 12); flex-grow: 0; flex-basis: auto; }
+.grid\-y>.cell.\-12\_print    { height: 100%; flex-grow: 0; flex-basis: auto; }
 
 .grid\-x>.cell.\-push\-0\_print, .grid\-x.\-reverse>.cell.\-pull\-0\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-0\_print    { margin-left: 0; }
 .grid\-x>.cell.\-push\-1\_print, .grid\-x.\-reverse>.cell.\-pull\-1\_print, .grid\-x.\-reverse\_print>.cell.\-pull\-1\_print    { margin-left: calc(-0.1px + 100% * 1 / 12); }

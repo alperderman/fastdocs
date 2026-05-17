@@ -149,8 +149,6 @@ docs.init = function () {
     document.title = docs.document.title;
     docs.buildMap(docs.ui.node.mapList, docs.sections);
     docs.buildSidebar(docs.ui.node.sidebar, docs.sections);
-    docs.processUi();
-    window.addEventListener("resize", docs.processUi);
     window.addEventListener("keydown", function (e) {
       if (e.key === 'Enter' && e.target.classList.contains("search-input")) {
         docs.clickSearch(e.target);
@@ -166,6 +164,8 @@ docs.init = function () {
       docs.paramAction(window.location.href);
     });
     docs.ui.node.zoomBase.innerText = parseInt(docs.ui.scale * 100) + "%";
+    docs.processUi();
+    window.addEventListener("resize", docs.processUi);
     docs.paramAction(window.location.href);
     docs.hideLoading();
   });

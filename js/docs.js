@@ -581,13 +581,13 @@ docs.showSide = function () {
 };
 docs.showMap = function () {
   docs.hideAll();
-  docs.ui.node.content.appendChild(docs.ui.node.home);
+  docs.ui.node.home.classList.remove("-hide");
   docs.ui.node.map.classList.remove("-hide");
   docs.ui.node.search.classList.add("-hide");
 };
 docs.showSearch = function () {
   docs.hideAll();
-  docs.ui.node.content.appendChild(docs.ui.node.home);
+  docs.ui.node.home.classList.remove("-hide");
   docs.ui.node.search.classList.remove("-hide");
   docs.ui.node.map.classList.add("-hide");
 };
@@ -608,6 +608,7 @@ docs.hideAll = function () {
     active.classList.remove("active");
   }
   docs.hideSide();
+  docs.ui.node.home.classList.add("-hide");
   docs.ui.node.content.innerHTML = "";
 };
 docs.getAttribute = function (node, attr) {

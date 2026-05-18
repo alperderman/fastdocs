@@ -66,7 +66,7 @@
 
 .cell                  { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; flex-shrink: 0; flex-grow: 0; flex-basis: auto; overflow: auto; }
 
-.cell.\-overflow       { overflow: visible; }
+.cell.\-overflow       { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x>.cell.\-frame { height: 100vh; }
 .grid\-x>.cell.\-auto  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -158,6 +158,12 @@
 .grid\-y>.cell.\-pull\-11, .grid\-y.\-reverse>.cell.\-push\-11  { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
 .grid\-y>.cell.\-pull\-12, .grid\-y.\-reverse>.cell.\-push\-12  { margin-bottom: 100%; }
 
+.cell.\-top    { margin-bottom: auto; }
+.cell.\-right  { margin-left: auto; }
+.cell.\-bottom { margin-top: auto; }
+.cell.\-left   { margin-right: auto; }
+.cell.\-clear  { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
+
 @media print,
 screen and (min-width: 40em) {
 .grid\-x.\-frame\_medium    { width: 100vw; }
@@ -184,7 +190,7 @@ screen and (min-width: 40em) {
 .grid\-x.\-stretch\_medium, .grid\-y.\-stretch\_medium   { align-items: stretch; }
 .grid\-x.\-baseline\_medium, .grid\-y.\-baseline\_medium { align-items: baseline; }
 
-.cell.\-overflow\_medium       { overflow: visible; }
+.cell.\-overflow\_medium       { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x>.cell.\-frame\_medium { height: 100vh; }
 .grid\-x>.cell.\-auto\_medium  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -275,6 +281,12 @@ screen and (min-width: 40em) {
 .grid\-y>.cell.\-pull\-10\_medium, .grid\-y.\-reverse>.cell.\-push\-10\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-10\_medium { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
 .grid\-y>.cell.\-pull\-11\_medium, .grid\-y.\-reverse>.cell.\-push\-11\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-11\_medium { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
 .grid\-y>.cell.\-pull\-12\_medium, .grid\-y.\-reverse>.cell.\-push\-12\_medium, .grid\-y.\-reverse\_medium>.cell.\-push\-12\_medium { margin-bottom: 100%; }
+
+.cell.\-top\_medium    { margin-bottom: auto; }
+.cell.\-right\_medium  { margin-left: auto; }
+.cell.\-bottom\_medium { margin-top: auto; }
+.cell.\-left\_medium   { margin-right: auto; }
+.cell.\-clear\_medium  { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
 }
 
 @media print,
@@ -303,7 +315,7 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_large, .grid\-y.\-stretch\_large   { align-items: stretch; }
 .grid\-x.\-baseline\_large, .grid\-y.\-baseline\_large { align-items: baseline; }
 
-.cell.\-overflow\_large       { overflow: visible; }
+.cell.\-overflow\_large       { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x>.cell.\-frame\_large { height: 100vh; }
 .grid\-x>.cell.\-auto\_large  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -394,6 +406,12 @@ screen and (min-width: 64em) {
 .grid\-y>.cell.\-pull\-10\_large, .grid\-y.\-reverse>.cell.\-push\-10\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-10\_large, .grid\-y.\-reverse\_large>.cell.\-push\-10\_large  { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
 .grid\-y>.cell.\-pull\-11\_large, .grid\-y.\-reverse>.cell.\-push\-11\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-11\_large, .grid\-y.\-reverse\_large>.cell.\-push\-11\_large  { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
 .grid\-y>.cell.\-pull\-12\_large, .grid\-y.\-reverse>.cell.\-push\-12\_large, .grid\-y.\-reverse\_medium>.cell.\-push\-12\_large, .grid\-y.\-reverse\_large>.cell.\-push\-12\_large  { margin-bottom: 100%; }
+
+.cell.\-top\_large    { margin-bottom: auto; }
+.cell.\-right\_large  { margin-left: auto; }
+.cell.\-bottom\_large { margin-top: auto; }
+.cell.\-left\_large   { margin-right: auto; }
+.cell.\-clear\_large  { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
 }
 
 @media print {
@@ -421,7 +439,7 @@ screen and (min-width: 64em) {
 .grid\-x.\-stretch\_print, .grid\-y.\-stretch\_print   { align-items: stretch; }
 .grid\-x.\-baseline\_print, .grid\-y.\-baseline\_print { align-items: baseline; }
 
-.cell.\-overflow\_print       { overflow: visible; }
+.cell.\-overflow\_print       { overflow: visible; max-width: none; max-height: none; }
 
 .grid\-x>.cell.\-frame\_print { height: 100vh; }
 .grid\-x>.cell.\-auto\_print  { width: auto; flex-grow: 0; flex-basis: auto; }
@@ -512,6 +530,12 @@ screen and (min-width: 64em) {
 .grid\-y>.cell.\-pull\-10\_print, .grid\-y.\-reverse>.cell.\-push\-10\_print, .grid\-y.\-reverse\_print>.cell.\-push\-10\_print { margin-bottom: calc(-0.1px + 100% * 10 / 12); }
 .grid\-y>.cell.\-pull\-11\_print, .grid\-y.\-reverse>.cell.\-push\-11\_print, .grid\-y.\-reverse\_print>.cell.\-push\-11\_print { margin-bottom: calc(-0.1px + 100% * 11 / 12); }
 .grid\-y>.cell.\-pull\-12\_print, .grid\-y.\-reverse>.cell.\-push\-12\_print, .grid\-y.\-reverse\_print>.cell.\-push\-12\_print { margin-bottom: 100%; }
+
+.cell.\-top\_print    { margin-bottom: auto; }
+.cell.\-right\_print  { margin-left: auto; }
+.cell.\-bottom\_print { margin-top: auto; }
+.cell.\-left\_print   { margin-right: auto; }
+.cell.\-clear\_print  { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
 }
 
 /*ASPECT RATIO*/
@@ -621,8 +645,8 @@ screen and (min-width: 64em) {
 .\-relative { position: relative; }
 .\-absolute { position: absolute; }
 .\-fixed    { position: fixed; }
-.\-relative { position: static; }
-.\-absolute { position: sticky; }
+.\-static   { position: static; }
+.\-sticky   { position: sticky; }
 
 .\-top\-left      { top: 0; right: auto; bottom: auto; left: 0; }
 .\-top\-center    { top: 0; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
@@ -637,23 +661,28 @@ screen and (min-width: 64em) {
 .\-bottom\-right  { top: auto; right: 0; bottom: 0; left: auto; }
 
 .\-top\-left\-outside      { top: auto; right: auto; bottom: 100%; left: 0; }
-.\-top\-center\-outside    { top: auto; right: auto; bottom: 100%; left: auto; }
-.\-top\-left\-outside      { top: auto; right: 0; bottom: 100%; left: auto; }
+.\-top\-center\-outside    { top: auto; right: auto; bottom: 100%; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\-outside     { top: auto; right: 0; bottom: 100%; left: auto; }
 
-.\-middle\-left\-outside   { top: auto; right: 100%; bottom: auto; left: auto; }
-.\-middle\-right\-outside  { top: auto; right: auto; bottom: auto; left: 100%; }
+.\-left\-top\-outside      { top: 0; right: 100%; bottom: auto; left: auto; }
+.\-left\-center\-outside   { top: 50%; right: 100%; bottom: auto; left: auto; transform: translate(0, -50%); }
+.\-left\-bottom\-outside   { top: auto; right: 100%; bottom: 0; left: auto; }
 
 .\-bottom\-left\-outside   { top: 100%; right: auto; bottom: auto; left: 0; }
-.\-bottom\-center\-outside { top: 100%; right: auto; bottom: auto; left: auto; }
+.\-bottom\-center\-outside { top: 100%; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
 .\-bottom\-right\-outside  { top: 100%; right: 0; bottom: auto; left: auto; }
+
+.\-right\-top\-outside     { top: 0; right: auto; bottom: auto; left: 100%; }
+.\-right\-center\-outside  { top: 50%; right: auto; bottom: auto; left: 100%; transform: translate(0, -50%); }
+.\-right\-bottom\-outside  { top: auto; right: auto; bottom: 0; left: 100%; }
 
 @media print,
 screen and (min-width: 40em) {
 .\-relative\_medium { position: relative; }
 .\-absolute\_medium { position: absolute; }
 .\-fixed\_medium    { position: fixed; }
-.\-relative\_medium { position: static; }
-.\-absolute\_medium { position: sticky; }
+.\-static\_medium   { position: static; }
+.\-sticky\_medium   { position: sticky; }
 
 .\-top\-left\_medium      { top: 0; right: auto; bottom: auto; left: 0; }
 .\-top\-center\_medium    { top: 0; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
@@ -668,15 +697,20 @@ screen and (min-width: 40em) {
 .\-bottom\-right\_medium  { top: auto; right: 0; bottom: 0; left: auto; }
 
 .\-top\-left\-outside\_medium      { top: auto; right: auto; bottom: 100%; left: 0; }
-.\-top\-center\-outside\_medium    { top: auto; right: auto; bottom: 100%; left: auto; }
-.\-top\-left\-outside\_medium      { top: auto; right: 0; bottom: 100%; left: auto; }
+.\-top\-center\-outside\_medium    { top: auto; right: auto; bottom: 100%; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\-outside\_medium     { top: auto; right: 0; bottom: 100%; left: auto; }
 
-.\-middle\-left\-outside\_medium   { top: auto; right: 100%; bottom: auto; left: auto; }
-.\-middle\-right\-outside\_medium  { top: auto; right: auto; bottom: auto; left: 100%; }
+.\-left\-top\-outside\_medium      { top: 0; right: 100%; bottom: auto; left: auto; }
+.\-left\-center\-outside\_medium   { top: 50%; right: 100%; bottom: auto; left: auto; transform: translate(0, -50%); }
+.\-left\-bottom\-outside\_medium   { top: auto; right: 100%; bottom: 0; left: auto; }
 
 .\-bottom\-left\-outside\_medium   { top: 100%; right: auto; bottom: auto; left: 0; }
-.\-bottom\-center\-outside\_medium { top: 100%; right: auto; bottom: auto; left: auto; }
+.\-bottom\-center\-outside\_medium { top: 100%; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
 .\-bottom\-right\-outside\_medium  { top: 100%; right: 0; bottom: auto; left: auto; }
+
+.\-right\-top\-outside\_medium     { top: 0; right: auto; bottom: auto; left: 100%; }
+.\-right\-center\-outside\_medium  { top: 50%; right: auto; bottom: auto; left: 100%; transform: translate(0, -50%); }
+.\-right\-bottom\-outside\_medium  { top: auto; right: auto; bottom: 0; left: 100%; }
 }
 
 @media print,
@@ -684,8 +718,8 @@ screen and (min-width: 64em) {
 .\-relative\_large { position: relative; }
 .\-absolute\_large { position: absolute; }
 .\-fixed\_large    { position: fixed; }
-.\-relative\_large { position: static; }
-.\-absolute\_large { position: sticky; }
+.\-static\_large   { position: static; }
+.\-sticky\_large   { position: sticky; }
 
 .\-top\-left\_large      { top: 0; right: auto; bottom: auto; left: 0; }
 .\-top\-center\_large    { top: 0; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
@@ -700,23 +734,28 @@ screen and (min-width: 64em) {
 .\-bottom\-right\_large  { top: auto; right: 0; bottom: 0; left: auto; }
 
 .\-top\-left\-outside\_large      { top: auto; right: auto; bottom: 100%; left: 0; }
-.\-top\-center\-outside\_large    { top: auto; right: auto; bottom: 100%; left: auto; }
-.\-top\-left\-outside\_large      { top: auto; right: 0; bottom: 100%; left: auto; }
+.\-top\-center\-outside\_large    { top: auto; right: auto; bottom: 100%; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\-outside\_large     { top: auto; right: 0; bottom: 100%; left: auto; }
 
-.\-middle\-left\-outside\_large   { top: auto; right: 100%; bottom: auto; left: auto; }
-.\-middle\-right\-outside\_large  { top: auto; right: auto; bottom: auto; left: 100%; }
+.\-left\-top\-outside\_large      { top: 0; right: 100%; bottom: auto; left: auto; }
+.\-left\-center\-outside\_large   { top: 50%; right: 100%; bottom: auto; left: auto; transform: translate(0, -50%); }
+.\-left\-bottom\-outside\_large   { top: auto; right: 100%; bottom: 0; left: auto; }
 
 .\-bottom\-left\-outside\_large   { top: 100%; right: auto; bottom: auto; left: 0; }
-.\-bottom\-center\-outside\_large { top: 100%; right: auto; bottom: auto; left: auto; }
+.\-bottom\-center\-outside\_large { top: 100%; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
 .\-bottom\-right\-outside\_large  { top: 100%; right: 0; bottom: auto; left: auto; }
+
+.\-right\-top\-outside\_large     { top: 0; right: auto; bottom: auto; left: 100%; }
+.\-right\-center\-outside\_large  { top: 50%; right: auto; bottom: auto; left: 100%; transform: translate(0, -50%); }
+.\-right\-bottom\-outside\_large  { top: auto; right: auto; bottom: 0; left: 100%; }
 }
 
 @media print {
 .\-relative\_print { position: relative; }
 .\-absolute\_print { position: absolute; }
 .\-fixed\_print    { position: fixed; }
-.\-relative\_print { position: static; }
-.\-absolute\_print { position: sticky; }
+.\-static\_print   { position: static; }
+.\-sticky\_print   { position: sticky; }
 
 .\-top\-left\_print      { top: 0; right: auto; bottom: auto; left: 0; }
 .\-top\-center\_print    { top: 0; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
@@ -731,15 +770,20 @@ screen and (min-width: 64em) {
 .\-bottom\-right\_print  { top: auto; right: 0; bottom: 0; left: auto; }
 
 .\-top\-left\-outside\_print      { top: auto; right: auto; bottom: 100%; left: 0; }
-.\-top\-center\-outside\_print    { top: auto; right: auto; bottom: 100%; left: auto; }
-.\-top\-left\-outside\_print      { top: auto; right: 0; bottom: 100%; left: auto; }
+.\-top\-center\-outside\_print    { top: auto; right: auto; bottom: 100%; left: 50%; transform: translate(-50%, 0); }
+.\-top\-right\-outside\_print     { top: auto; right: 0; bottom: 100%; left: auto; }
 
-.\-middle\-left\-outside\_print   { top: auto; right: 100%; bottom: auto; left: auto; }
-.\-middle\-right\-outside\_print  { top: auto; right: auto; bottom: auto; left: 100%; }
+.\-left\-top\-outside\_print      { top: 0; right: 100%; bottom: auto; left: auto; }
+.\-left\-center\-outside\_print   { top: 50%; right: 100%; bottom: auto; left: auto; transform: translate(0, -50%); }
+.\-left\-bottom\-outside\_print   { top: auto; right: 100%; bottom: 0; left: auto; }
 
 .\-bottom\-left\-outside\_print   { top: 100%; right: auto; bottom: auto; left: 0; }
-.\-bottom\-center\-outside\_print { top: 100%; right: auto; bottom: auto; left: auto; }
+.\-bottom\-center\-outside\_print { top: 100%; right: auto; bottom: auto; left: 50%; transform: translate(-50%, 0); }
 .\-bottom\-right\-outside\_print  { top: 100%; right: 0; bottom: auto; left: auto; }
+
+.\-right\-top\-outside\_print     { top: 0; right: auto; bottom: auto; left: 100%; }
+.\-right\-center\-outside\_print  { top: 50%; right: auto; bottom: auto; left: 100%; transform: translate(0, -50%); }
+.\-right\-bottom\-outside\_print  { top: auto; right: auto; bottom: 0; left: 100%; }
 }
 
 /*BACKGROUND*/
@@ -938,6 +982,6 @@ screen and (min-width: 64em) {
 }
 
 @media print {
-.\-show\_print {display: block !important;}
-.\-hide\_print {display: none !important;}
+.\-show\_print {display: block !important; }
+.\-hide\_print {display: none !important; }
 }

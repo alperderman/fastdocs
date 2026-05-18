@@ -44,7 +44,7 @@ docs.ui.scale = docs.ui.baseScale;
 docs.ui.node = {
   loading: document.querySelector(".loading"),
   main: document.querySelector(".main"),
-  menuButton: document.querySelector(".menu-button"),
+  menuButton: document.querySelector(".nav .menu-button"),
   home: document.querySelector(".home"),
   map: document.querySelector(".home .map"),
   mapList: document.querySelector(".home .map-list"),
@@ -53,12 +53,10 @@ docs.ui.node = {
   content: document.querySelector(".content"),
   side: document.querySelector(".side"),
   sidebar: document.querySelector(".side .sidebar"),
-  nav: document.querySelector(".nav"),
-  overflow: document.querySelector(".nav .overflow"),
-  overflowMenu: document.querySelector(".nav .overflow-menu"),
+  more: document.querySelector(".nav .more"),
+  moreMenu: document.querySelector(".nav .more-menu"),
   menu: document.querySelector(".nav .menu"),
-  zoom: document.querySelector(".zoom"),
-  zoomBase: document.querySelector(".zoom .zoom-base")
+  zoomBase: document.querySelector(".nav .zoom-base")
 };
 docs.setFontsize = function () {
   document.body.style.fontSize = docs.ui.baseFontSize;
@@ -116,26 +114,29 @@ docs.toggleSidebar = function (bool) {
   }
 };
 docs.setNavbar = function () {
-  var menuWidth = docs.getNodeWidth(docs.ui.node.menu);
+  docs.ui.node.more.classList.remove("-hide");
+  var menuWidth = docs.getNodeWidth(docs.ui.node.menu)-1;
   var menuChildrenWidth = docs.getChildrenWidth(docs.ui.node.menu);
-  if (menuChildrenWidth > menuWidth) {
-    while (menuChildrenWidth > menuWidth && docs.ui.node.menu.children.length > 0) {
-      docs.ui.node.overflowMenu.insertBefore(docs.ui.node.menu.children[docs.ui.node.menu.children.length - 1], docs.ui.node.overflowMenu.children[0]);
+  if (menuChildrenWidth >= menuWidth) {
+    while (menuChildrenWidth >= menuWidth && docs.ui.node.menu.children.length > 0) {
+      docs.ui.node.moreMenu.insertBefore(docs.ui.node.menu.children[docs.ui.node.menu.children.length - 1], docs.ui.node.moreMenu.children[0]);
       menuChildrenWidth = docs.getChildrenWidth(docs.ui.node.menu);
+      menuWidth = docs.getNodeWidth(docs.ui.node.menu)-1;
     }
   } else {
-    while (menuChildrenWidth <= menuWidth && docs.ui.node.overflowMenu.children.length > 0) {
-      docs.ui.node.menu.appendChild(docs.ui.node.overflowMenu.children[0]);
+    while (menuChildrenWidth < menuWidth && docs.ui.node.moreMenu.children.length > 0) {
+      docs.ui.node.menu.appendChild(docs.ui.node.moreMenu.children[0]);
       menuChildrenWidth = docs.getChildrenWidth(docs.ui.node.menu);
+      menuWidth = docs.getNodeWidth(docs.ui.node.menu)-1;
       if (menuChildrenWidth > menuWidth) {
-        docs.ui.node.overflowMenu.insertBefore(docs.ui.node.menu.children[docs.ui.node.menu.children.length - 1], docs.ui.node.overflowMenu.children[0]);
+        docs.ui.node.moreMenu.insertBefore(docs.ui.node.menu.children[docs.ui.node.menu.children.length - 1], docs.ui.node.moreMenu.children[0]);
       }
     }
   }
-  if (docs.ui.node.overflowMenu.children.length > 0) {
-    docs.ui.node.overflow.style.visibility = "visible";
+  if (docs.ui.node.moreMenu.children.length > 0) {
+    docs.ui.node.more.classList.remove("-hide");
   } else {
-    docs.ui.node.overflow.style.visibility = "hidden";
+    docs.ui.node.more.classList.add("-hide");
   }
 };
 docs.processUi = function () {
@@ -570,11 +571,13 @@ docs.hideSide = function () {
   docs.ui.node.side.classList.add("-hide");
   docs.ui.node.main.classList.remove("-push-3_large");
   docs.ui.node.menuButton.classList.add("-hide");
+  docs.processUi();
 };
 docs.showSide = function () {
   docs.ui.node.side.classList.remove("-hide");
   docs.ui.node.main.classList.add("-push-3_large");
   docs.ui.node.menuButton.classList.remove("-hide");
+  docs.processUi();
 };
 docs.showMap = function () {
   docs.hideAll();

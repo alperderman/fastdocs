@@ -24,13 +24,6 @@ body {
 }
 
 .nav {
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: auto;
     font-size: 1.25em;
     background-color: #3f627f;
     color: #eee;
@@ -38,69 +31,45 @@ body {
     z-index: 9;
 }
 
-.nav .nav-group {
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
+.nav .menu .zoom {
+    margin-left: auto;
 }
 
-.nav .nav-group.menu {
-    justify-content: flex-start;
-    width: 100%;
-    overflow: hidden;
-}
-
-.nav .nav-group .menu-button {
+.nav .menu-button {
     border-right: 0.2em solid #eee;
 }
 
-.nav .nav-group.overflow {
+.nav .more {
     margin-left: auto;
     border-left: 0.2em solid #eee;
 }
 
-.nav .nav-group.zoom {
-    margin-left: auto;
-}
-
-.nav .overflow:hover .overflow-menu {
+.nav .more:hover .more-menu {
     display: block;
 }
 
-.nav .overflow-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: auto;
-    height: auto;
+.nav .more-menu {
     display: none;
     background-color: #eee;
     color: #3F5770;
+    z-index: 8;
 }
 
-.nav .overflow-menu>.nav-item {
+.nav .more-menu>.nav-item>button {
     width: 100%;
 }
 
-.nav .nav-item {
-    display: block;
-    position: relative;
+.nav .nav-item>button {
     padding: 1em;
-    width: auto;
-    height: auto;
     cursor: pointer;
 }
 
-.nav .nav-item:hover {
+.nav .nav-item>button:hover {
     color: #d06d3c;
     background-color: #fff;
 }
 
-.nav .nav-item:focus-visible {
+.nav .nav-item>button:focus-visible {
     outline: 0.1em solid #d06d3c;
     outline-offset: -0.1em;
 }
